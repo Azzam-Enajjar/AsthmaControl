@@ -17,8 +17,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".NewAsthmaTimeActivity"
-            android:label="@string/title_activity_new_asthma_time" >
+            android:name=".NewLogActivity"
+            android:label="@string/title_activity_new_log" >
         </activity>
     </application>
 
