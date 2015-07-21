@@ -15,12 +15,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         NEW_LOG_BUTTON = (Button) findViewById(R.id.newLogButton);
+        EXIT_BUTTON = (Button) findViewById(R.id.exitButton);
 
         NEW_LOG_BUTTON.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, NewLogActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        EXIT_BUTTON.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.exit(0);
             }
         });
     }

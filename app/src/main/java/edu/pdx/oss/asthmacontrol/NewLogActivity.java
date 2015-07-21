@@ -1,13 +1,17 @@
 package edu.pdx.oss.asthmacontrol;
 
 import android.app.DatePickerDialog;
+import android.content.Context;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -18,8 +22,11 @@ public class NewLogActivity extends AppCompatActivity {
     EditText DATE1_TEXT, DATE2_TEXT, DATE3_TEXT, DATE4_TEXT;
     ImageButton IMAGE1_BUTTON, IMAGE2_BUTTON, IMAGE3_BUTTON, IMAGE4_BUTTON;
     Button SAVE_BUTTON, BACK_BUTTON;
+    CheckBox CHECKBOX1,CHECKBOX2,CHECKBOX3, CHECKBOX4;
     Calendar calendar = Calendar.getInstance();
-    Integer flag;
+    Context ctx = this;
+    String logDate1, logDate2, logDate3, logDate4;
+    Integer dataPickerFlag, checkBox1Flag = 0, checkBox2Flag = 0, checkBox3Flag = 0, checkBox4Flag = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,16 +44,23 @@ public class NewLogActivity extends AppCompatActivity {
         IMAGE4_BUTTON = (ImageButton) findViewById(R.id.imageButton4);
         SAVE_BUTTON = (Button) findViewById(R.id.saveButton);
         BACK_BUTTON = (Button) findViewById(R.id.backButton);
+        CHECKBOX1 = (CheckBox) findViewById(R.id.checkBox1);
+        CHECKBOX2 = (CheckBox) findViewById(R.id.checkBox2);
+        CHECKBOX3 = (CheckBox) findViewById(R.id.checkBox3);
+        CHECKBOX4 = (CheckBox) findViewById(R.id.checkBox4);
 
         DATE_PICKER.setVisibility(View.INVISIBLE);
 
         SimpleDateFormat sdf = new SimpleDateFormat( "yyyy-MM-dd" );
         DATE1_TEXT.setText(sdf.format(new Date()));
+        DATE2_TEXT.setText(sdf.format(new Date()));
+        DATE3_TEXT.setText(sdf.format(new Date()));
+        DATE4_TEXT.setText(sdf.format(new Date()));
 
         IMAGE1_BUTTON.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                flag = 1;
+                dataPickerFlag = 1;
                 new DatePickerDialog(NewLogActivity.this, listener, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
             }
         });
@@ -54,7 +68,7 @@ public class NewLogActivity extends AppCompatActivity {
         IMAGE2_BUTTON.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                flag = 2;
+                dataPickerFlag = 2;
                 new DatePickerDialog(NewLogActivity.this, listener, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
             }
         });
@@ -62,7 +76,7 @@ public class NewLogActivity extends AppCompatActivity {
         IMAGE3_BUTTON.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                flag = 3;
+                dataPickerFlag = 3;
                 new DatePickerDialog(NewLogActivity.this, listener, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
             }
         });
@@ -70,8 +84,120 @@ public class NewLogActivity extends AppCompatActivity {
         IMAGE4_BUTTON.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                flag = 4;
+                dataPickerFlag = 4;
                 new DatePickerDialog(NewLogActivity.this, listener, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
+
+        SAVE_BUTTON.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (CHECKBOX1.isChecked()){
+                    checkBox1Flag = 1;
+                    logDate1 = DATE1_TEXT.getText().toString();
+                    DatabaseOperations dop1 = new DatabaseOperations(ctx);
+                    Cursor CR1 = dop1.getAllDatesFromAsthmaTimeTable(dop1);
+                    if(CR1.getCount()>0){
+                        CR1.moveToFirst();
+                        boolean dateFound1 = false;
+                        do{
+                            if(logDate1.equals(CR1.getString(0))){
+                                dateFound1 = true;
+                            }
+                        }while(CR1.moveToNext());
+                        if (dateFound1) {
+                            Toast.makeText(getBaseContext(), "Error... The date of when your asthma kept you from getting as much done at work, school or at home already exists", Toast.LENGTH_LONG).show();
+                            DATE1_TEXT.requestFocus();
+                            return;
+                        }
+                    }
+                }
+                else{
+                    checkBox1Flag = 0;
+                }
+
+                if (CHECKBOX2.isChecked()){
+                    checkBox2Flag = 1;
+                    logDate2 = DATE2_TEXT.getText().toString();
+                    DatabaseOperations dop2 = new DatabaseOperations(ctx);
+                    Cursor CR2 = dop2.getAllDatesFromAsthmaBreathTable(dop2);
+                    if(CR2.getCount()>0){
+                        CR2.moveToFirst();
+                        boolean dateFound2 = false;
+                        do{
+                            if(logDate2.equals(CR2.getString(0))){
+                                dateFound2 = true;
+                            }
+                        }while(CR2.moveToNext());
+                        if (dateFound2) {
+                            Toast.makeText(getBaseContext(), "Error... The date of when you had shortness of breath already exists", Toast.LENGTH_LONG).show();
+                            DATE2_TEXT.requestFocus();
+                            return;
+                        }
+                    }
+                }
+                else{
+                    checkBox2Flag = 0;
+                }
+
+                if (CHECKBOX3.isChecked()){
+                    checkBox3Flag = 1;
+                    logDate3 = DATE3_TEXT.getText().toString();
+                    DatabaseOperations dop3 = new DatabaseOperations(ctx);
+                    Cursor CR3 = dop3.getAllDatesFromAsthmaSymptomsTable(dop3);
+                    if(CR3.getCount()>0){
+                        CR3.moveToFirst();
+                        boolean dateFound3 = false;
+                        do{
+                            if(logDate3.equals(CR3.getString(0))){
+                                dateFound3 = true;
+                            }
+                        }while(CR3.moveToNext());
+                        if (dateFound3) {
+                            Toast.makeText(getBaseContext(), "Error... The date of when your asthma symptoms wake you up at night or earlier than usual in the morning already exists", Toast.LENGTH_LONG).show();
+                            DATE3_TEXT.requestFocus();
+                            return;
+                        }
+                    }
+                }
+                else{
+                    checkBox3Flag = 0;
+                }
+
+                if (CHECKBOX4.isChecked()){
+                    checkBox4Flag = 1;
+                    logDate4 = DATE4_TEXT.getText().toString();
+                    DatabaseOperations dop4 = new DatabaseOperations(ctx);
+                    Cursor CR4 = dop4.getAllDatesFromAsthmaMedicationTable(dop4);
+                    if(CR4.getCount()>0){
+                        CR4.moveToFirst();
+                        boolean dateFound4 = false;
+                        do{
+                            if(logDate4.equals(CR4.getString(0))){
+                                dateFound4 = true;
+                            }
+                        }while(CR4.moveToNext());
+                        if (dateFound4) {
+                            Toast.makeText(getBaseContext(), "Error... The date of when you used your rescue inhaler or nebulizer medication already exists", Toast.LENGTH_LONG).show();
+                            DATE4_TEXT.requestFocus();
+                            return;
+                        }
+                    }
+                }
+                else{
+                    checkBox4Flag = 0;
+                }
+
+                DatabaseOperations dop = new DatabaseOperations(ctx);
+                dop.insertDateForAll(dop, logDate1, logDate2, logDate3, logDate4, checkBox1Flag, checkBox2Flag, checkBox3Flag, checkBox4Flag);
+                Toast.makeText(getBaseContext(), "Dates added successfully", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        BACK_BUTTON.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
 
@@ -80,7 +206,7 @@ public class NewLogActivity extends AppCompatActivity {
     DatePickerDialog.OnDateSetListener listener = new DatePickerDialog.OnDateSetListener() {
         @Override
         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-            switch(flag) {
+            switch(dataPickerFlag) {
                 case 1:
                     DATE1_TEXT.setText(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
                     break;

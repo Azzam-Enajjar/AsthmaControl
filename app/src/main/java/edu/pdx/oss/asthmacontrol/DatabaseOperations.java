@@ -38,4 +38,66 @@ public class DatabaseOperations extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sdb, int oldVersion, int newVersion) {
 
     }
+
+    public void insertDateForAll(DatabaseOperations dop, String logDate1, String logDate2, String logDate3, String logDate4, Integer checkBox1Flag, Integer checkBox2Flag, Integer checkBox3Flag, Integer checkBox4Flag ){
+        SQLiteDatabase SQ = dop.getWritableDatabase();
+
+        if (checkBox1Flag == 1){
+            ContentValues  CV1 = new ContentValues();
+            CV1.put(TableData.TableInfo.ASTHMA_TIME_DATE, logDate1);
+            long k1 = SQ.insert(TableData.TableInfo.ASTHMA_TIME_TABLE, null, CV1);
+            Log.d("Database operations", "One row inserted to Asthma Time Table");
+        }
+
+        if (checkBox2Flag == 1){
+            ContentValues  CV2 = new ContentValues();
+            CV2.put(TableData.TableInfo.ASTHMA_BREATH_DATE, logDate2);
+            long k2 = SQ.insert(TableData.TableInfo.ASTHMA_BREATH_TABLE, null, CV2);
+            Log.d("Database operations", "One row inserted to Asthma Breath Table");
+        }
+
+        if (checkBox3Flag == 1){
+            ContentValues  CV3 = new ContentValues();
+            CV3.put(TableData.TableInfo.ASTHMA_SYMPTOMS_DATE, logDate3);
+            long k3 = SQ.insert(TableData.TableInfo.ASTHMA_SYMPTOMS_TABLE, null, CV3);
+            Log.d("Database operations", "One row inserted to Asthma Symptoms Table");
+        }
+
+        if (checkBox4Flag == 1){
+            ContentValues  CV4 = new ContentValues();
+            CV4.put(TableData.TableInfo.ASTHMA_MEDICATION_DATE, logDate4);
+            long k4 = SQ.insert(TableData.TableInfo.ASTHMA_MEDICATION_TABLE, null, CV4);
+            Log.d("Database operations", "One row inserted to Asthma Medication Table");
+        }
+
+
+    }
+
+    public Cursor getAllDatesFromAsthmaTimeTable(DatabaseOperations dop){
+        SQLiteDatabase SQ = dop.getReadableDatabase();
+        String[] columns = {TableData.TableInfo.ASTHMA_TIME_DATE};
+        Cursor CR = SQ.query(TableData.TableInfo.ASTHMA_TIME_TABLE, columns, null, null, null, null, null);
+        return CR;
+    }
+
+    public Cursor getAllDatesFromAsthmaBreathTable(DatabaseOperations dop){
+        SQLiteDatabase SQ = dop.getReadableDatabase();
+        String[] columns = {TableData.TableInfo.ASTHMA_BREATH_DATE};
+        Cursor CR = SQ.query(TableData.TableInfo.ASTHMA_BREATH_TABLE, columns, null, null, null, null, null);
+        return CR;
+    }
+
+    public Cursor getAllDatesFromAsthmaSymptomsTable(DatabaseOperations dop){
+        SQLiteDatabase SQ = dop.getReadableDatabase();
+        String[] columns = {TableData.TableInfo.ASTHMA_SYMPTOMS_DATE};
+        Cursor CR = SQ.query(TableData.TableInfo.ASTHMA_SYMPTOMS_TABLE, columns, null, null, null, null, null);
+        return CR;
+    }
+
+    public Cursor getAllDatesFromAsthmaMedicationTable(DatabaseOperations dop){
+        SQLiteDatabase SQ = dop.getReadableDatabase();
+        String[] columns = {TableData.TableInfo.ASTHMA_MEDICATION_DATE};
+        Cursor CR = SQ.query(TableData.TableInfo.ASTHMA_MEDICATION_TABLE, columns, null, null, null, null, null);
+        return CR;
+    }
 }
