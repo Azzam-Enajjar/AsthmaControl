@@ -21,9 +21,10 @@
 
             <Button
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="65dp"
                 android:text="Log your asthma"
-                android:id="@+id/newLogButton"/>
+                android:id="@+id/newLogButton"
+                android:textSize="16dp" />
         </TableRow>
 
         <TableRow
@@ -34,9 +35,10 @@
 
             <Button
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="65dp"
                 android:text="Update Log"
-                android:id="@+id/updateLogButton"/>
+                android:id="@+id/updateLogButton"
+                android:textSize="16dp" />
         </TableRow>
 
         <TableRow
@@ -47,9 +49,10 @@
 
             <Button
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="65dp"
                 android:text="Report your asthma score"
-                android:id="@+id/reportScoreButton"/>
+                android:id="@+id/reportScoreButton"
+                android:textSize="16dp" />
 
         </TableRow>
 
@@ -61,9 +64,10 @@
 
             <Button
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="65dp"
                 android:text="Exit"
-                android:id="@+id/exitButton"/>
+                android:id="@+id/exitButton"
+                android:textSize="16dp" />
         </TableRow>
     </TableLayout>
 

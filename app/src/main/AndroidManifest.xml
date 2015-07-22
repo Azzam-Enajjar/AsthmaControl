@@ -20,6 +20,10 @@
             android:name=".NewLogActivity"
             android:label="@string/title_activity_new_log" >
         </activity>
+        <activity
+            android:name=".UpdateLogMenu"
+            android:label="@string/title_activity_update_log_menu" >
+        </activity>
     </application>
 
 </manifest>
