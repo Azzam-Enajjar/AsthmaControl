@@ -36,22 +36,23 @@
     <EditText
         android:layout_width="110dp"
         android:layout_height="37dp"
-        android:id="@+id/editText"
+        android:id="@+id/dateText"
         android:background="@android:color/white"
         android:layout_below="@+id/gridView"
         android:layout_marginTop="5dp"
         android:layout_marginRight="5dp"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:gravity="center" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageButton"
         android:background="@drawable/calendar"
-        android:layout_alignTop="@+id/editText"
-        android:layout_toRightOf="@+id/editText"
-        android:layout_alignBottom="@+id/editText" />
+        android:layout_alignTop="@+id/dateText"
+        android:layout_toRightOf="@+id/dateText"
+        android:layout_alignBottom="@+id/dateText" />
 
     <Button
         android:layout_width="wrap_content"
@@ -85,6 +86,13 @@
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/deleteDateButton"
         android:layout_alignEnd="@+id/deleteDateButton" />
+
+    <DatePicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/datePicker"
+        android:layout_alignTop="@+id/gridView"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

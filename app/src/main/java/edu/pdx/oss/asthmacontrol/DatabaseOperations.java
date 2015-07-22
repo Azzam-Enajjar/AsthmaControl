@@ -69,8 +69,6 @@ public class DatabaseOperations extends SQLiteOpenHelper {
             long k4 = SQ.insert(TableData.TableInfo.ASTHMA_MEDICATION_TABLE, null, CV4);
             Log.d("Database operations", "One row inserted to Asthma Medication Table");
         }
-
-
     }
 
     public Cursor getAllDatesFromAsthmaTimeTable(DatabaseOperations dop){
