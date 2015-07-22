@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -90,9 +91,21 @@ public class NewLogActivity extends AppCompatActivity {
         });
 
         SAVE_BUTTON.setOnClickListener(new View.OnClickListener() {
+            Date dateObject;
+
             @Override
             public void onClick(View v) {
+                DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+
                 if (CHECKBOX1.isChecked()){
+                    try {
+                        String log_Date = DATE1_TEXT.getText().toString();
+                        dateObject = formatter.parse(log_Date);
+                        logDate1 = new SimpleDateFormat("yyyy-MM-dd").format(dateObject);
+                    } catch (java.text.ParseException e) {
+                        e.printStackTrace();
+                        Toast.makeText(getBaseContext(), "Error... Please enter a valid date", Toast.LENGTH_LONG).show();
+                    }
                     checkBox1Flag = 1;
                     logDate1 = DATE1_TEXT.getText().toString();
                     DatabaseOperations dop1 = new DatabaseOperations(ctx);
@@ -117,6 +130,14 @@ public class NewLogActivity extends AppCompatActivity {
                 }
 
                 if (CHECKBOX2.isChecked()){
+                    try {
+                        String log_Date = DATE2_TEXT.getText().toString();
+                        dateObject = formatter.parse(log_Date);
+                        logDate2 = new SimpleDateFormat("yyyy-MM-dd").format(dateObject);
+                    } catch (java.text.ParseException e) {
+                        e.printStackTrace();
+                        Toast.makeText(getBaseContext(), "Error... Please enter a valid date", Toast.LENGTH_LONG).show();
+                    }
                     checkBox2Flag = 1;
                     logDate2 = DATE2_TEXT.getText().toString();
                     DatabaseOperations dop2 = new DatabaseOperations(ctx);
@@ -141,6 +162,14 @@ public class NewLogActivity extends AppCompatActivity {
                 }
 
                 if (CHECKBOX3.isChecked()){
+                    try {
+                        String log_Date = DATE3_TEXT.getText().toString();
+                        dateObject = formatter.parse(log_Date);
+                        logDate3 = new SimpleDateFormat("yyyy-MM-dd").format(dateObject);
+                    } catch (java.text.ParseException e) {
+                        e.printStackTrace();
+                        Toast.makeText(getBaseContext(), "Error... Please enter a valid date", Toast.LENGTH_LONG).show();
+                    }
                     checkBox3Flag = 1;
                     logDate3 = DATE3_TEXT.getText().toString();
                     DatabaseOperations dop3 = new DatabaseOperations(ctx);
@@ -165,6 +194,14 @@ public class NewLogActivity extends AppCompatActivity {
                 }
 
                 if (CHECKBOX4.isChecked()){
+                    try {
+                        String log_Date = DATE4_TEXT.getText().toString();
+                        dateObject = formatter.parse(log_Date);
+                        logDate4 = new SimpleDateFormat("yyyy-MM-dd").format(dateObject);
+                    } catch (java.text.ParseException e) {
+                        e.printStackTrace();
+                        Toast.makeText(getBaseContext(), "Error... Please enter a valid date", Toast.LENGTH_LONG).show();
+                    }
                     checkBox4Flag = 1;
                     logDate4 = DATE4_TEXT.getText().toString();
                     DatabaseOperations dop4 = new DatabaseOperations(ctx);
@@ -190,7 +227,10 @@ public class NewLogActivity extends AppCompatActivity {
 
                 DatabaseOperations dop = new DatabaseOperations(ctx);
                 dop.insertDateForAll(dop, logDate1, logDate2, logDate3, logDate4, checkBox1Flag, checkBox2Flag, checkBox3Flag, checkBox4Flag);
-                Toast.makeText(getBaseContext(), "Dates added successfully", Toast.LENGTH_LONG).show();
+                if ((CHECKBOX1.isChecked()) || (CHECKBOX2.isChecked()) || (CHECKBOX3.isChecked()) || (CHECKBOX4.isChecked()))
+                    Toast.makeText(getBaseContext(), "Date(s) added successfully", Toast.LENGTH_LONG).show();
+                else
+                    Toast.makeText(getBaseContext(), "Error... Check (Yes) before saving", Toast.LENGTH_LONG).show();
             }
         });
 

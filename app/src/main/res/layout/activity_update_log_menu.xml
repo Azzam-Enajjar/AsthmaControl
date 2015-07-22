@@ -77,12 +77,13 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="85dp"
-                android:text="Update a date of when you used your rescue inhaler or nebulizer medication"
+                android:text="Update date(s) of when you used your rescue inhaler or nebulizer medication"
                 android:id="@+id/updateAsthmaMedication"
                 android:layout_below="@+id/updateAsthmaSymptoms"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:textSize="15dp" />
+                android:textSize="15dp"
+                android:singleLine="true" />
 
         </TableRow>
 
@@ -96,7 +97,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="85dp"
                 android:text="Back to main menu"
-                android:id="@+id/exitButton"
+                android:id="@+id/backButton"
                 android:layout_below="@+id/updateAsthmaMedication"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"

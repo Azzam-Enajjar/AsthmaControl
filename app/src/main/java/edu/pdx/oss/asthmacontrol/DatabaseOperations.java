@@ -98,4 +98,25 @@ public class DatabaseOperations extends SQLiteOpenHelper {
         Cursor CR = SQ.query(TableData.TableInfo.ASTHMA_MEDICATION_TABLE, columns, null, null, null, null, null);
         return CR;
     }
+
+    public void insertDateForAsthmaTime(DatabaseOperations dop, String logDate){
+        SQLiteDatabase SQ = dop.getWritableDatabase();
+        ContentValues  CV = new ContentValues();
+        CV.put(TableData.TableInfo.ASTHMA_TIME_DATE, logDate);
+        long k1 = SQ.insert(TableData.TableInfo.ASTHMA_TIME_TABLE, null, CV);
+        Log.d("Database operations", "One row inserted to Asthma Time Table");
+        }
+
+    public void deleteDateFromAsthmaTime(DatabaseOperations dop, String logDate){
+        SQLiteDatabase SQ = dop.getWritableDatabase();
+        String selection = TableData.TableInfo.ASTHMA_TIME_DATE + " = ?";
+        String args[] = {logDate};
+        SQ.delete(TableData.TableInfo.ASTHMA_TIME_TABLE, selection, args);
+    }
+
+    public void deleteAllFromAsthmaTime(DatabaseOperations dop){
+        SQLiteDatabase SQ = dop.getWritableDatabase();
+        SQ.delete(TableData.TableInfo.ASTHMA_TIME_TABLE, null, null);
+    }
+
 }

@@ -27,7 +27,7 @@ public class UpdateAsthmaTimeActivity extends AppCompatActivity {
     EditText DATE_TEXT;
     ImageButton IMAGE_BUTTON;
     DatePicker DATE_PICKER;
-    Button ADD_DATE_BUTTON, DELETE_BUTTON, BACK_BUTTON;
+    Button ADD_DATE_BUTTON, DELETE_BUTTON, BACK_BUTTON, DELETE_ALL_BUTTON;
     GridView GRIDVIEW;
     Calendar calendar = Calendar.getInstance();
     Context ctx = this;
@@ -45,7 +45,9 @@ public class UpdateAsthmaTimeActivity extends AppCompatActivity {
         DATE_PICKER = (DatePicker) findViewById(R.id.datePicker);
         ADD_DATE_BUTTON = (Button) findViewById(R.id.addDateButton);
         DELETE_BUTTON = (Button) findViewById(R.id.deleteDateButton);
+        BACK_BUTTON = (Button) findViewById(R.id.backButton);
         GRIDVIEW = (GridView) findViewById(R.id.gridView);
+        DELETE_ALL_BUTTON = (Button) findViewById(R.id.deleteAllButton);
 
         DATE_PICKER.setVisibility(View.INVISIBLE);
 
@@ -58,7 +60,97 @@ public class UpdateAsthmaTimeActivity extends AppCompatActivity {
         dataAdapter.setDropDownViewResource(R.layout.activity_update_asthma_time);
 
         displayDataOnGridView();
-    }
+
+        IMAGE_BUTTON.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new DatePickerDialog(UpdateAsthmaTimeActivity.this, listener, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
+
+        ADD_DATE_BUTTON.setOnClickListener(new View.OnClickListener() {
+            String logDate;
+            Date dateObject;
+
+            @Override
+            public void onClick(View v) {
+                DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+
+                try {
+                    String log_Date = DATE_TEXT.getText().toString();
+                    dateObject = formatter.parse(log_Date);
+                    logDate = new SimpleDateFormat("yyyy-MM-dd").format(dateObject);
+                } catch (java.text.ParseException e) {
+                    e.printStackTrace();
+                    Toast.makeText(getBaseContext(), "Error... Please enter a valid date", Toast.LENGTH_LONG).show();
+                }
+
+                DatabaseOperations dop1 = new DatabaseOperations(ctx);
+                Cursor CR = dop1.getAllDatesFromAsthmaTimeTable(dop1);
+                if(CR.getCount()>0){
+                    CR.moveToFirst();
+                    boolean dateFound = false;
+                    do{
+                        if(logDate.equals(CR.getString(0))){
+                            dateFound = true;
+                        }
+                    }while(CR.moveToNext());
+                    if (dateFound) {
+                        Toast.makeText(getBaseContext(), "Error... The date already exists", Toast.LENGTH_LONG).show();
+                        DATE_TEXT.requestFocus();
+                        return;
+                    }
+                }
+                DatabaseOperations dop2 = new DatabaseOperations(ctx);
+                dop2.insertDateForAsthmaTime(dop2, logDate);
+                li.add(logDate);
+                GRIDVIEW.setAdapter(dataAdapter);
+                Toast.makeText(getBaseContext(), "The date added successfully", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        GRIDVIEW.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getBaseContext(), "Position of item selected : " + position + " Item selected " + li.get(position), Toast.LENGTH_SHORT).show();
+                pos = position;
+            }
+        });
+
+        DELETE_BUTTON.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatabaseOperations dop = new DatabaseOperations(ctx);
+                String logDate = li.get(pos);
+                dop.deleteDateFromAsthmaTime(dop, logDate);
+                li.remove(pos);
+                displayDataOnGridView();
+                Toast.makeText(getBaseContext(), "Selected date has been removed successfully..", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        BACK_BUTTON.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        DELETE_ALL_BUTTON.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatabaseOperations dop = new DatabaseOperations(ctx);
+                dop.deleteAllFromAsthmaTime(dop);
+            }
+        });
+    } // End of create activity procedure
+
+    DatePickerDialog.OnDateSetListener listener = new DatePickerDialog.OnDateSetListener() {
+        @Override
+        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+            DATE_TEXT.setText(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
+        }
+    };
 
     public void displayDataOnGridView(){
         try {
@@ -83,9 +175,5 @@ public class UpdateAsthmaTimeActivity extends AppCompatActivity {
             Toast.makeText(getBaseContext(),"Error : " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
-
-
-
-
 
 }
