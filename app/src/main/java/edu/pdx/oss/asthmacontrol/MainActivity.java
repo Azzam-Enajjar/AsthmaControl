@@ -16,11 +16,20 @@ public class MainActivity extends AppCompatActivity {
 
         NEW_LOG_BUTTON = (Button) findViewById(R.id.newLogButton);
         EXIT_BUTTON = (Button) findViewById(R.id.exitButton);
+        UPDATE_LOG_BUTTON =(Button) findViewById(R.id.updateLogButton);
 
         NEW_LOG_BUTTON.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, NewLogActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        UPDATE_LOG_BUTTON.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, UpdateLogMenu.class);
                 startActivity(intent);
             }
         });

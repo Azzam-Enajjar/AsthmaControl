@@ -7,4 +7,5 @@
     <string name="title_activity_new_log">NewLogActivity</string>
     <string name="title_activity_main_activity2">MainActivity2Activity</string>
     <string name="title_activity_update_log_menu">UpdateLogMenu</string>
+    <string name="title_activity_update_asthma_time">UpdateAsthmaTimeActivity</string>
 </resources>

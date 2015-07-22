@@ -24,6 +24,10 @@
             android:name=".UpdateLogMenu"
             android:label="@string/title_activity_update_log_menu" >
         </activity>
+        <activity
+            android:name=".UpdateAsthmaTimeActivity"
+            android:label="@string/title_activity_update_asthma_time" >
+        </activity>
     </application>
 
 </manifest>
