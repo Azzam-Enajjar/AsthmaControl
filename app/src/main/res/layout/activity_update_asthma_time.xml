@@ -20,7 +20,7 @@
         android:textColor="@android:color/white" />
 
     <GridView
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="270dp"
         android:id="@+id/gridView"
         android:stretchMode="columnWidth"
@@ -29,21 +29,21 @@
         android:listSelector="@color/highlighted_text_material_dark"
         android:clickable="true"
         android:numColumns="1"
-        android:layout_below="@+id/textView"
-        android:layout_marginTop="5dp"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignTop="@+id/datePicker"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="110dp"
         android:layout_height="37dp"
         android:id="@+id/dateText"
         android:background="@android:color/white"
+        android:gravity="center"
         android:layout_below="@+id/gridView"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="5dp"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:gravity="center" />
+        android:layout_alignParentStart="true" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -60,9 +60,10 @@
         android:text="Add a new date"
         android:id="@+id/addDateButton"
         android:layout_below="@+id/gridView"
+        android:layout_marginTop="5dp"
         android:layout_toRightOf="@+id/imageButton"
-        android:layout_alignRight="@+id/gridView"
-        android:layout_alignEnd="@+id/gridView" />
+        android:layout_alignRight="@+id/showFourWeeksButton"
+        android:layout_alignEnd="@+id/showFourWeeksButton" />
 
     <Button
         android:layout_width="wrap_content"
@@ -87,13 +88,6 @@
         android:layout_alignRight="@+id/deleteDateButton"
         android:layout_alignEnd="@+id/deleteDateButton" />
 
-    <DatePicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/datePicker"
-        android:layout_alignTop="@+id/gridView"
-        android:layout_centerHorizontal="true" />
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -102,6 +96,33 @@
         android:layout_above="@+id/backButton"
         android:layout_alignRight="@+id/deleteDateButton"
         android:layout_alignEnd="@+id/deleteDateButton" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show All"
+        android:id="@+id/showAllButton"
+        android:layout_alignTop="@+id/gridView"
+        android:layout_alignLeft="@+id/showFourWeeksButton"
+        android:layout_alignStart="@+id/showFourWeeksButton"
+        android:layout_alignRight="@+id/showFourWeeksButton"
+        android:layout_alignEnd="@+id/showFourWeeksButton" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show past four weeks"
+        android:id="@+id/showFourWeeksButton"
+        android:layout_alignBottom="@id/gridView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <DatePicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/datePicker"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>
