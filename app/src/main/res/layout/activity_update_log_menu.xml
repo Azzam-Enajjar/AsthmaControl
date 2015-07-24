@@ -22,7 +22,7 @@
 
             <Button
                 android:layout_width="wrap_content"
-                android:layout_height="85dp"
+                android:layout_height="90dp"
                 android:text="Show / Update date(s) of when your asthma kept you from getting as much done at work, school or at home"
                 android:id="@+id/updateAsthmaTime"
                 android:layout_alignParentTop="true"
@@ -40,7 +40,7 @@
 
             <Button
                 android:layout_width="wrap_content"
-                android:layout_height="85dp"
+                android:layout_height="90dp"
                 android:text="Show / Update date(s) of when you had shortness of breath"
                 android:id="@+id/updateAsthmaBreath"
                 android:layout_below="@+id/updateAsthmaTime"
@@ -58,7 +58,7 @@
 
             <Button
                 android:layout_width="wrap_content"
-                android:layout_height="85dp"
+                android:layout_height="90dp"
                 android:text="Show / Update date(s) of when your asthma symptoms wake you up at night or earlier than usual in the morning"
                 android:id="@+id/updateAsthmaSymptoms"
                 android:layout_centerVertical="true"
@@ -76,14 +76,13 @@
 
             <Button
                 android:layout_width="wrap_content"
-                android:layout_height="85dp"
+                android:layout_height="90dp"
                 android:text="Show / Update date(s) of when you used your rescue inhaler or nebulizer medication"
                 android:id="@+id/updateAsthmaMedication"
-                android:layout_below="@+id/updateAsthmaSymptoms"
+                android:layout_centerVertical="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:textSize="15dp"
-                android:singleLine="true" />
+                android:textSize="15dp"/>
 
         </TableRow>
 
@@ -95,7 +94,7 @@
 
             <Button
                 android:layout_width="wrap_content"
-                android:layout_height="85dp"
+                android:layout_height="90dp"
                 android:text="Back to main menu"
                 android:id="@+id/backButton"
                 android:layout_below="@+id/updateAsthmaMedication"

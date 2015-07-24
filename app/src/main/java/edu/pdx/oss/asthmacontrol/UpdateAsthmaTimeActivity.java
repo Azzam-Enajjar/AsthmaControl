@@ -120,12 +120,17 @@ public class UpdateAsthmaTimeActivity extends AppCompatActivity {
         DELETE_BUTTON.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatabaseOperations dop = new DatabaseOperations(ctx);
-                String logDate = li.get(pos);
-                dop.deleteDateFromAsthmaTime(dop, logDate);
-                li.remove(pos);
-                displayDataOnGridView();
-                Toast.makeText(getBaseContext(), "Selected date has been removed successfully..", Toast.LENGTH_LONG).show();
+                if (pos != null){
+                    DatabaseOperations dop = new DatabaseOperations(ctx);
+                    String logDate = li.get(pos);
+                    dop.deleteDateFromAsthmaTime(dop, logDate);
+                    li.remove(pos);
+                    displayDataOnGridView();
+                    Toast.makeText(getBaseContext(), "Selected date has been removed successfully..", Toast.LENGTH_LONG).show();
+                }
+                else{
+                    Toast.makeText(getBaseContext(), "Error... Select a date first", Toast.LENGTH_LONG).show();
+                }
             }
         });
 
