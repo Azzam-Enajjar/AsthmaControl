@@ -20,7 +20,7 @@
         android:textColor="@android:color/white" />
 
     <GridView
-        android:layout_width="150dp"
+        android:layout_width="130dp"
         android:layout_height="270dp"
         android:id="@+id/gridView"
         android:stretchMode="columnWidth"
@@ -30,6 +30,7 @@
         android:clickable="true"
         android:numColumns="1"
         android:layout_alignTop="@+id/datePicker"
+        android:layout_marginTop="10dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -40,7 +41,7 @@
         android:background="@android:color/white"
         android:gravity="center"
         android:layout_below="@+id/gridView"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="5dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -60,7 +61,7 @@
         android:text="Add a new date"
         android:id="@+id/addDateButton"
         android:layout_below="@+id/gridView"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="15dp"
         android:layout_toRightOf="@+id/imageButton"
         android:layout_alignRight="@+id/showFourWeeksButton"
         android:layout_alignEnd="@+id/showFourWeeksButton" />
@@ -71,11 +72,11 @@
         android:text="Delete a date"
         android:id="@+id/deleteDateButton"
         android:layout_below="@+id/addDateButton"
+        android:layout_marginTop="12dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/addDateButton"
-        android:layout_alignEnd="@+id/addDateButton"
-        android:layout_marginTop="10dp"/>
+        android:layout_alignEnd="@+id/addDateButton"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -91,11 +92,15 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="D"
+        android:text="Delete All"
         android:id="@+id/deleteAllButton"
-        android:layout_above="@+id/backButton"
-        android:layout_alignRight="@+id/deleteDateButton"
-        android:layout_alignEnd="@+id/deleteDateButton" />
+        android:layout_above="@+id/showFourWeeksButton"
+        android:layout_alignLeft="@+id/showFourWeeksButton"
+        android:layout_alignStart="@+id/showFourWeeksButton"
+        android:layout_marginBottom="52dp"
+        android:layout_alignRight="@+id/showFourWeeksButton"
+        android:layout_alignEnd="@+id/showFourWeeksButton"
+        android:visibility="invisible" />
 
     <Button
         android:layout_width="wrap_content"
