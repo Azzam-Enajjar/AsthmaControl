@@ -23,7 +23,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="85dp"
-                android:text="Update date(s) of when your asthma kept you from getting as much done at work, school or at home"
+                android:text="Show / Update date(s) of when your asthma kept you from getting as much done at work, school or at home"
                 android:id="@+id/updateAsthmaTime"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
@@ -41,7 +41,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="85dp"
-                android:text="Update date(s) of when you had shortness of breath"
+                android:text="Show / Update date(s) of when you had shortness of breath"
                 android:id="@+id/updateAsthmaBreath"
                 android:layout_below="@+id/updateAsthmaTime"
                 android:layout_alignParentLeft="true"
@@ -59,7 +59,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="85dp"
-                android:text="Update date(s) of when your asthma symptoms wake you up at night or earlier than usual in the morning"
+                android:text="Show / Update date(s) of when your asthma symptoms wake you up at night or earlier than usual in the morning"
                 android:id="@+id/updateAsthmaSymptoms"
                 android:layout_centerVertical="true"
                 android:layout_alignParentLeft="true"
@@ -77,7 +77,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="85dp"
-                android:text="Update date(s) of when you used your rescue inhaler or nebulizer medication"
+                android:text="Show / Update date(s) of when you used your rescue inhaler or nebulizer medication"
                 android:id="@+id/updateAsthmaMedication"
                 android:layout_below="@+id/updateAsthmaSymptoms"
                 android:layout_alignParentLeft="true"
