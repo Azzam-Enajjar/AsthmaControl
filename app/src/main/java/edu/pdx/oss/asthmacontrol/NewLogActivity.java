@@ -107,7 +107,6 @@ public class NewLogActivity extends AppCompatActivity {
                         Toast.makeText(getBaseContext(), "Error... Please enter a valid date", Toast.LENGTH_LONG).show();
                     }
                     checkBox1Flag = 1;
-                    logDate1 = DATE1_TEXT.getText().toString();
                     DatabaseOperations dop1 = new DatabaseOperations(ctx);
                     Cursor CR1 = dop1.getAllDatesFromAsthmaTimeTable(dop1);
                     if(CR1.getCount()>0){
@@ -139,7 +138,6 @@ public class NewLogActivity extends AppCompatActivity {
                         Toast.makeText(getBaseContext(), "Error... Please enter a valid date", Toast.LENGTH_LONG).show();
                     }
                     checkBox2Flag = 1;
-                    logDate2 = DATE2_TEXT.getText().toString();
                     DatabaseOperations dop2 = new DatabaseOperations(ctx);
                     Cursor CR2 = dop2.getAllDatesFromAsthmaBreathTable(dop2);
                     if(CR2.getCount()>0){
@@ -171,7 +169,6 @@ public class NewLogActivity extends AppCompatActivity {
                         Toast.makeText(getBaseContext(), "Error... Please enter a valid date", Toast.LENGTH_LONG).show();
                     }
                     checkBox3Flag = 1;
-                    logDate3 = DATE3_TEXT.getText().toString();
                     DatabaseOperations dop3 = new DatabaseOperations(ctx);
                     Cursor CR3 = dop3.getAllDatesFromAsthmaSymptomsTable(dop3);
                     if(CR3.getCount()>0){
@@ -203,7 +200,6 @@ public class NewLogActivity extends AppCompatActivity {
                         Toast.makeText(getBaseContext(), "Error... Please enter a valid date", Toast.LENGTH_LONG).show();
                     }
                     checkBox4Flag = 1;
-                    logDate4 = DATE4_TEXT.getText().toString();
                     DatabaseOperations dop4 = new DatabaseOperations(ctx);
                     Cursor CR4 = dop4.getAllDatesFromAsthmaMedicationTable(dop4);
                     if(CR4.getCount()>0){
