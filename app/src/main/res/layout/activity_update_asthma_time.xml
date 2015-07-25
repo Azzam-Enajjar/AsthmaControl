@@ -21,12 +21,12 @@
 
     <GridView
         android:layout_width="130dp"
-        android:layout_height="270dp"
+        android:layout_height="267dp"
         android:id="@+id/gridView"
         android:stretchMode="columnWidth"
         android:gravity="center"
-        android:background="#7900afff"
-        android:listSelector="@color/accent_material_dark"
+        android:background="#9c00abff"
+        android:listSelector="@android:color/darker_gray"
         android:clickable="true"
         android:numColumns="1"
         android:layout_alignTop="@+id/datePicker"
