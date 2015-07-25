@@ -27,7 +27,7 @@ public class UpdateAsthmaTimeActivity extends AppCompatActivity {
     EditText DATE_TEXT;
     ImageButton IMAGE_BUTTON;
     DatePicker DATE_PICKER;
-    Button ADD_DATE_BUTTON, DELETE_BUTTON, BACK_BUTTON, DELETE_ALL_BUTTON;
+    Button ADD_DATE_BUTTON, DELETE_BUTTON, BACK_BUTTON, DELETE_ALL_BUTTON, SHOW_ALL_BUTTON, SHOW_FOUR_WEEKS_BUTTON;
     GridView GRIDVIEW;
     Calendar calendar = Calendar.getInstance();
     Context ctx = this;
@@ -45,6 +45,8 @@ public class UpdateAsthmaTimeActivity extends AppCompatActivity {
         DATE_PICKER = (DatePicker) findViewById(R.id.datePicker);
         ADD_DATE_BUTTON = (Button) findViewById(R.id.addDateButton);
         DELETE_BUTTON = (Button) findViewById(R.id.deleteDateButton);
+        SHOW_ALL_BUTTON =(Button) findViewById(R.id.showAllButton);
+        SHOW_FOUR_WEEKS_BUTTON = (Button) findViewById(R.id.showFourWeeksButton);
         BACK_BUTTON = (Button) findViewById(R.id.backButton);
         GRIDVIEW = (GridView) findViewById(R.id.gridView);
         DELETE_ALL_BUTTON = (Button) findViewById(R.id.deleteAllButton);
@@ -120,16 +122,48 @@ public class UpdateAsthmaTimeActivity extends AppCompatActivity {
         DELETE_BUTTON.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (pos != null){
+                if (pos != null) {
                     DatabaseOperations dop = new DatabaseOperations(ctx);
                     String logDate = li.get(pos);
                     dop.deleteDateFromAsthmaTime(dop, logDate);
                     li.remove(pos);
                     displayDataOnGridView();
                     Toast.makeText(getBaseContext(), "Selected date has been removed successfully..", Toast.LENGTH_LONG).show();
-                }
-                else{
+                } else {
                     Toast.makeText(getBaseContext(), "Error... Select a date first", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+        SHOW_ALL_BUTTON.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                displayDataOnGridView();
+            }
+        });
+
+        SHOW_FOUR_WEEKS_BUTTON.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatabaseOperations dop = new DatabaseOperations(ctx);
+                try {
+                    Cursor CR = dop.getPastFourWeeksFromAsthmaTime(dop);
+                    if(CR.getCount()>0){
+                        li.clear();
+                        if (CR.moveToFirst()){
+                            do {
+                                String logDate = CR.getString(CR.getColumnIndex(TableData.TableInfo.ASTHMA_TIME_DATE));
+                                li.add(logDate);
+                                GRIDVIEW.setAdapter(dataAdapter);
+                            } while(CR.moveToNext());
+                        }
+                        else{
+                            Toast.makeText(getBaseContext(), "There is no data...", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                    CR.close();
+                }catch (Exception e){
+                    Toast.makeText(getBaseContext(),"Error : " + e.getMessage(), Toast.LENGTH_LONG).show();
                 }
             }
         });

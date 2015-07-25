@@ -7,6 +7,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 public class DatabaseOperations extends SQLiteOpenHelper {
     public static final int database_version = 1;
     public String CREATE_USER_TABLE = "CREATE TABLE " + TableData.TableInfo.USER_TABLE + "(" + TableData.TableInfo.USER_NAME + " TEXT, " + TableData.TableInfo.USER_PASSWORD + " TEXT);";
@@ -112,6 +116,21 @@ public class DatabaseOperations extends SQLiteOpenHelper {
         String selection = TableData.TableInfo.ASTHMA_TIME_DATE + " = ?";
         String args[] = {logDate};
         SQ.delete(TableData.TableInfo.ASTHMA_TIME_TABLE, selection, args);
+    }
+
+    public Cursor getPastFourWeeksFromAsthmaTime(DatabaseOperations dop){
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DATE, -28);
+        SimpleDateFormat sdf = new SimpleDateFormat( "yyyy-MM-dd" );
+        String startDate = sdf.format(cal.getTime());
+        String endDate = sdf.format(new Date());
+
+        SQLiteDatabase SQ = dop.getReadableDatabase();
+        String columns[] = {TableData.TableInfo.ASTHMA_TIME_DATE};
+        String selection = TableData.TableInfo.ASTHMA_TIME_DATE + " BETWEEN ? AND ?";
+        String args[] = {startDate, endDate};
+        Cursor CR = SQ.query(TableData.TableInfo.ASTHMA_TIME_TABLE, columns, selection, args, null, null, null);
+        return CR;
     }
 
     public void deleteAllFromAsthmaTime(DatabaseOperations dop){
