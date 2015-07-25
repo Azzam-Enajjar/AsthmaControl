@@ -114,7 +114,6 @@ public class UpdateAsthmaTimeActivity extends AppCompatActivity {
         GRIDVIEW.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getBaseContext(), "Position of item selected : " + position + " Item selected " + li.get(position), Toast.LENGTH_SHORT).show();
                 pos = position;
             }
         });
