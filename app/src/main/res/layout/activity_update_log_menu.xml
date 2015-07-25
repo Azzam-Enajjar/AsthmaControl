@@ -27,8 +27,7 @@
                 android:id="@+id/updateAsthmaTime"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:textSize="15dp"/>
+                android:layout_alignParentStart="true" />
 
         </TableRow>
 
@@ -45,8 +44,7 @@
                 android:id="@+id/updateAsthmaBreath"
                 android:layout_below="@+id/updateAsthmaTime"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:textSize="15dp" />
+                android:layout_alignParentStart="true" />
 
         </TableRow>
 
@@ -63,8 +61,7 @@
                 android:id="@+id/updateAsthmaSymptoms"
                 android:layout_centerVertical="true"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:textSize="15dp" />
+                android:layout_alignParentStart="true" />
 
         </TableRow>
 
@@ -81,8 +78,7 @@
                 android:id="@+id/updateAsthmaMedication"
                 android:layout_centerVertical="true"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:textSize="15dp"/>
+                android:layout_alignParentStart="true" />
 
         </TableRow>
 
@@ -99,8 +95,7 @@
                 android:id="@+id/backButton"
                 android:layout_below="@+id/updateAsthmaMedication"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:textSize="15dp" />
+                android:layout_alignParentStart="true" />
 
         </TableRow>
 
