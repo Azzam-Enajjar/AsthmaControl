@@ -28,6 +28,10 @@
             android:name=".UpdateAsthmaTimeActivity"
             android:label="@string/title_activity_update_asthma_time" >
         </activity>
+        <activity
+            android:name=".UpdateAsthmaBreathActivity"
+            android:label="@string/title_activity_update_asthma_breath" >
+        </activity>
     </application>
 
 </manifest>
