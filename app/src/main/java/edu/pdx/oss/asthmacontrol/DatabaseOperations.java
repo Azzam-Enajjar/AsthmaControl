@@ -145,7 +145,7 @@ public class DatabaseOperations extends SQLiteOpenHelper {
         SQLiteDatabase SQ = dop.getWritableDatabase();
         String selection = TableData.TableInfo.ASTHMA_SYMPTOMS_DATE + " = ?";
         String args[] = {logDate};
-        SQ.delete(TableData.TableInfo.ASTHMA_SYMPTOMS_DATE, selection, args);
+        SQ.delete(TableData.TableInfo.ASTHMA_SYMPTOMS_TABLE, selection, args);
     }
 
     public Cursor getPastFourWeeksFromAsthmaTime(DatabaseOperations dop){
@@ -201,6 +201,11 @@ public class DatabaseOperations extends SQLiteOpenHelper {
     public void deleteAllFromAsthmaBreath(DatabaseOperations dop){
         SQLiteDatabase SQ = dop.getWritableDatabase();
         SQ.delete(TableData.TableInfo.ASTHMA_BREATH_TABLE, null, null);
+    }
+
+    public void deleteAllFromAsthmaSymptoms(DatabaseOperations dop){
+        SQLiteDatabase SQ = dop.getWritableDatabase();
+        SQ.delete(TableData.TableInfo.ASTHMA_SYMPTOMS_TABLE, null, null);
     }
 
 

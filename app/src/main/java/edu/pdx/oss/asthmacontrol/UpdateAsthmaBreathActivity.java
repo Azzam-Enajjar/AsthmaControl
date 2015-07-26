@@ -60,7 +60,7 @@ public class UpdateAsthmaBreathActivity extends AppCompatActivity {
         li = new ArrayList<String>();
 
         dataAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, li);
-        dataAdapter.setDropDownViewResource(R.layout.activity_update_asthma_time);
+        dataAdapter.setDropDownViewResource(R.layout.activity_update_asthma_breath);
 
         displayDataOnGridView();
 
