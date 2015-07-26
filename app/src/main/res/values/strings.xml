@@ -9,4 +9,5 @@
     <string name="title_activity_update_log_menu">UpdateLogMenu</string>
     <string name="title_activity_update_asthma_time">UpdateAsthmaTimeActivity</string>
     <string name="title_activity_update_asthma_breath">updateAsthmaBreathActivity</string>
+    <string name="title_activity_update_asthma_symptoms">UpdateAsthmaSymptomsActivity</string>
 </resources>

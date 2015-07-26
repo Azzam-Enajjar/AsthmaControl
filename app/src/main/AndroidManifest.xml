@@ -32,6 +32,10 @@
             android:name=".UpdateAsthmaBreathActivity"
             android:label="@string/title_activity_update_asthma_breath" >
         </activity>
+        <activity
+            android:name=".UpdateAsthmaSymptomsActivity"
+            android:label="@string/title_activity_update_asthma_symptoms" >
+        </activity>
     </application>
 
 </manifest>
