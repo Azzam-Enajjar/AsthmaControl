@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class UpdateLogMenu extends AppCompatActivity {
-    Button UPDATEASTHMATIME_BUTTON, BACK_BUTTON;
+    Button UPDATEASTHMATIME_BUTTON, UPDATEASTHMABREATH_BUTTON, BACK_BUTTON;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,6 +15,7 @@ public class UpdateLogMenu extends AppCompatActivity {
         setContentView(R.layout.activity_update_log_menu);
 
         UPDATEASTHMATIME_BUTTON = (Button) findViewById(R.id.updateAsthmaTime);
+        UPDATEASTHMABREATH_BUTTON = (Button) findViewById(R.id.updateAsthmaBreath);
         BACK_BUTTON = (Button) findViewById(R.id.backButton);
 
         UPDATEASTHMATIME_BUTTON.setOnClickListener(new View.OnClickListener() {
@@ -23,6 +24,14 @@ public class UpdateLogMenu extends AppCompatActivity {
                 Intent intent = new Intent(UpdateLogMenu.this, UpdateAsthmaTimeActivity.class);
                 startActivity(intent);
 
+            }
+        });
+
+        UPDATEASTHMABREATH_BUTTON.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UpdateLogMenu.this, UpdateAsthmaBreathActivity.class);
+                startActivity(intent);
             }
         });
 

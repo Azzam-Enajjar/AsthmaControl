@@ -168,4 +168,10 @@ public class DatabaseOperations extends SQLiteOpenHelper {
         SQ.delete(TableData.TableInfo.ASTHMA_TIME_TABLE, null, null);
     }
 
+    public void deleteAllFromAsthmaBreath(DatabaseOperations dop){
+        SQLiteDatabase SQ = dop.getWritableDatabase();
+        SQ.delete(TableData.TableInfo.ASTHMA_BREATH_TABLE, null, null);
+    }
+
+
 }

@@ -53,7 +53,6 @@ public class UpdateAsthmaTimeActivity extends AppCompatActivity {
 
         DATE_PICKER.setVisibility(View.INVISIBLE);
 
-
         SimpleDateFormat sdf = new SimpleDateFormat( "yyyy-MM-dd" );
         DATE_TEXT.setText(sdf.format(new Date()));
 
