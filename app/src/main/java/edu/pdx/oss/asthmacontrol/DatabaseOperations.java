@@ -208,6 +208,21 @@ public class DatabaseOperations extends SQLiteOpenHelper {
         return CR;
     }
 
+    public Cursor getPastFourWeeksFromAsthmaMedication(DatabaseOperations dop){
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DATE, -28);
+        SimpleDateFormat sdf = new SimpleDateFormat( "yyyy-MM-dd" );
+        String startDate = sdf.format(cal.getTime());
+        String endDate = sdf.format(new Date());
+
+        SQLiteDatabase SQ = dop.getReadableDatabase();
+        String columns[] = {TableData.TableInfo.ASTHMA_MEDICATION_DATE};
+        String selection = TableData.TableInfo.ASTHMA_MEDICATION_DATE + " BETWEEN ? AND ?";
+        String args[] = {startDate, endDate};
+        Cursor CR = SQ.query(TableData.TableInfo.ASTHMA_MEDICATION_TABLE, columns, selection, args, null, null, null);
+        return CR;
+    }
+
     public void deleteAllFromAsthmaTime(DatabaseOperations dop){
         SQLiteDatabase SQ = dop.getWritableDatabase();
         SQ.delete(TableData.TableInfo.ASTHMA_TIME_TABLE, null, null);
