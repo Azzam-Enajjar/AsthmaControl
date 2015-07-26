@@ -238,5 +238,10 @@ public class DatabaseOperations extends SQLiteOpenHelper {
         SQ.delete(TableData.TableInfo.ASTHMA_SYMPTOMS_TABLE, null, null);
     }
 
+    public void deleteAllFromAsthmaMedication(DatabaseOperations dop){
+        SQLiteDatabase SQ = dop.getWritableDatabase();
+        SQ.delete(TableData.TableInfo.ASTHMA_MEDICATION_TABLE, null, null);
+    }
+
 
 }
