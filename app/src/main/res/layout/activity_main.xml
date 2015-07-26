@@ -36,7 +36,7 @@
             <Button
                 android:layout_width="fill_parent"
                 android:layout_height="65dp"
-                android:text="Update Log"
+                android:text="Show/ Update Log"
                 android:id="@+id/updateLogButton"
                 android:textSize="16dp" />
         </TableRow>
