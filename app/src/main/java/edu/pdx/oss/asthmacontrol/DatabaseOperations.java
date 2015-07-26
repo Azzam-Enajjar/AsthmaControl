@@ -156,6 +156,13 @@ public class DatabaseOperations extends SQLiteOpenHelper {
         SQ.delete(TableData.TableInfo.ASTHMA_SYMPTOMS_TABLE, selection, args);
     }
 
+    public void deleteDateFromAsthmaMedication(DatabaseOperations dop, String logDate){
+        SQLiteDatabase SQ = dop.getWritableDatabase();
+        String selection = TableData.TableInfo.ASTHMA_MEDICATION_DATE + " = ?";
+        String args[] = {logDate};
+        SQ.delete(TableData.TableInfo.ASTHMA_MEDICATION_TABLE, selection, args);
+    }
+
     public Cursor getPastFourWeeksFromAsthmaTime(DatabaseOperations dop){
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.DATE, -28);
