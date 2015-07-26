@@ -18,7 +18,7 @@
         </activity>
         <activity
             android:name=".NewLogActivity"
-            android:label="@string/title_activity_new_log" >
+            android:label="Asthma Control - New Log" >
         </activity>
         <activity
             android:name=".UpdateLogMenu"
