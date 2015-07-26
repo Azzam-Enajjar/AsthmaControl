@@ -26,19 +26,19 @@
         </activity>
         <activity
             android:name=".UpdateAsthmaTimeActivity"
-            android:label="@string/title_activity_update_asthma_time" >
+            android:label="Show / Update date(s)" >
         </activity>
         <activity
             android:name=".UpdateAsthmaBreathActivity"
-            android:label="@string/title_activity_update_asthma_breath" >
+            android:label="Show / Update date(s)" >
         </activity>
         <activity
             android:name=".UpdateAsthmaSymptomsActivity"
-            android:label="@string/title_activity_update_asthma_symptoms" >
+            android:label="Show / Update date(s)" >
         </activity>
         <activity
             android:name=".UpdateAsthmaMedicationActivity"
-            android:label="@string/title_activity_update_asthma_medication" >
+            android:label="Show / Update date(s)" >
         </activity>
     </application>
 
