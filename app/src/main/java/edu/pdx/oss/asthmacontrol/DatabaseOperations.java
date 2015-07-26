@@ -124,7 +124,15 @@ public class DatabaseOperations extends SQLiteOpenHelper {
         ContentValues  CV = new ContentValues();
         CV.put(TableData.TableInfo.ASTHMA_SYMPTOMS_DATE, logDate);
         long k1 = SQ.insert(TableData.TableInfo.ASTHMA_SYMPTOMS_TABLE, null, CV);
-        Log.d("Database operations", "One row inserted to Asthma Breath Table");
+        Log.d("Database operations", "One row inserted to Asthma Symptoms Table");
+    }
+
+    public void insertDateForAsthmaMedication (DatabaseOperations dop, String logDate){
+        SQLiteDatabase SQ = dop.getWritableDatabase();
+        ContentValues  CV = new ContentValues();
+        CV.put(TableData.TableInfo.ASTHMA_MEDICATION_DATE, logDate);
+        long k1 = SQ.insert(TableData.TableInfo.ASTHMA_MEDICATION_TABLE, null, CV);
+        Log.d("Database operations", "One row inserted to Asthma Medication Table");
     }
 
     public void deleteDateFromAsthmaTime(DatabaseOperations dop, String logDate){
