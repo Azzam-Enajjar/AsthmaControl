@@ -9,7 +9,7 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
-            android:label="Asthma Control - Main Menu" >
+            android:label="Main Menu" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,11 +18,11 @@
         </activity>
         <activity
             android:name=".NewLogActivity"
-            android:label="Asthma Control - New Log" >
+            android:label="New Log" >
         </activity>
         <activity
             android:name=".UpdateLogMenu"
-            android:label="@string/title_activity_update_log_menu" >
+            android:label="Show / Update Sub-Menu" >
         </activity>
         <activity
             android:name=".UpdateAsthmaTimeActivity"

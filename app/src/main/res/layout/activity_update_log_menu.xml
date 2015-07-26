@@ -17,7 +17,7 @@
         <TableRow
             android:id="@+id/first_row"
             android:layout_width="wrap_content"
-            android:minHeight="240dp"
+            android:minHeight="230dp"
             android:layout_weight="1" >
 
             <Button
@@ -34,7 +34,7 @@
         <TableRow
             android:id="@+id/second_row"
             android:layout_width="wrap_content"
-            android:minHeight="240dp"
+            android:minHeight="230dp"
             android:layout_weight="1" >
 
             <Button
@@ -51,7 +51,7 @@
         <TableRow
             android:id="@+id/third_row"
             android:layout_width="wrap_content"
-            android:minHeight="240dp"
+            android:minHeight="230dp"
             android:layout_weight="1" >
 
             <Button
@@ -68,7 +68,7 @@
         <TableRow
             android:id="@+id/fourth_row"
             android:layout_width="wrap_content"
-            android:minHeight="240dp"
+            android:minHeight="230dp"
             android:layout_weight="1" >
 
             <Button
@@ -85,7 +85,7 @@
         <TableRow
             android:id="@+id/fifth_row"
             android:layout_width="wrap_content"
-            android:minHeight="240dp"
+            android:minHeight="230dp"
             android:layout_weight="1" >
 
             <Button
