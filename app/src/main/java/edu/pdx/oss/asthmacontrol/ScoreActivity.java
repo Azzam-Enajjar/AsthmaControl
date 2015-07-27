@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
 
 public class ScoreActivity extends AppCompatActivity {
-    EditText DAYS_ASTHMA_TIME_TEXT, SCORE_ASTHMA_TIME_TEXT, DAYS_ASTHMA_BREATH_TEXT, SCORE_ASTHMA_BREATH_TEXT,  DAYS_ASTHMA_SYMPTOMS_TEXT, SCORE_ASTHMA_SYMPTOMS_TEXT;
+    EditText DAYS_ASTHMA_TIME_TEXT, SCORE_ASTHMA_TIME_TEXT, DAYS_ASTHMA_BREATH_TEXT, SCORE_ASTHMA_BREATH_TEXT, DAYS_ASTHMA_SYMPTOMS_TEXT, SCORE_ASTHMA_SYMPTOMS_TEXT,  DAYS_ASTHMA_MEDICATION_TEXT, SCORE_ASTHMA_MEDICATION_TEXT;
     Context ctx = this;
     Integer numberOfDays;
     Integer score;
@@ -23,6 +23,8 @@ public class ScoreActivity extends AppCompatActivity {
         SCORE_ASTHMA_BREATH_TEXT = (EditText) findViewById(R.id.scoreText2);
         DAYS_ASTHMA_SYMPTOMS_TEXT = (EditText) findViewById(R.id.daysText3);
         SCORE_ASTHMA_SYMPTOMS_TEXT = (EditText) findViewById(R.id.scoreText3);
+        DAYS_ASTHMA_MEDICATION_TEXT = (EditText) findViewById(R.id.daysText4);
+        SCORE_ASTHMA_MEDICATION_TEXT = (EditText) findViewById(R.id.scoreText4);
 
         numberOfDays = dop.getNumberOfDaysFromAsthmaTime(dop);
         DAYS_ASTHMA_TIME_TEXT.setText(numberOfDays.toString());
@@ -39,6 +41,8 @@ public class ScoreActivity extends AppCompatActivity {
         score = getScoreFromAsthmaSymptoms();
         SCORE_ASTHMA_SYMPTOMS_TEXT.setText(score.toString());
 
+        numberOfDays = dop.getNumberOfDaysFromAsthmaMedication(dop);
+        DAYS_ASTHMA_MEDICATION_TEXT.setText(numberOfDays.toString());
 
     }
 
