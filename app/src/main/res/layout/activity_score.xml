@@ -29,7 +29,6 @@
         android:textSize="15dp"
         android:textColor="@android:color/white"
         android:layout_below="@+id/textView1"
-        android:layout_marginTop="5dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -54,7 +53,6 @@
         android:background="@android:color/white"
         android:gravity="center"
         android:layout_below="@+id/textView1"
-        android:layout_marginTop="5dp"
         android:layout_toRightOf="@+id/textView2"
         android:layout_marginLeft="5dp"
         android:layout_toEndOf="@+id/textView2" />
@@ -314,11 +312,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Total Score:"
+        android:text="Total:"
         android:id="@+id/textView16"
         android:textSize="16dp"
         android:textColor="@android:color/white"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/imageView5"
         android:layout_alignRight="@+id/textView12"/>
 
     <EditText
@@ -328,7 +326,7 @@
         android:background="@android:color/white"
         android:text="5"
         android:gravity="center"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/imageView5"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -341,7 +339,52 @@
         android:textSize="18dp"
         android:textColor="#ff17ff35"
         android:layout_above="@+id/textView16"
-        android:layout_marginBottom="5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView1"
+        android:background="@drawable/dividerline"
+        android:layout_below="@+id/scoreText1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:background="@drawable/dividerline"
+        android:layout_below="@+id/scoreText2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView3"
+        android:background="@drawable/dividerline"
+        android:layout_below="@+id/scoreText3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView4"
+        android:background="@drawable/dividerline"
+        android:layout_below="@+id/scoreText4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView5"
+        android:background="@drawable/dividerline"
+        android:layout_below="@+id/scoreText5"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
