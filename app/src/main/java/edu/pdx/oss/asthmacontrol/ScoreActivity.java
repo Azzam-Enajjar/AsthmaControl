@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
 
 public class ScoreActivity extends AppCompatActivity {
-    EditText DAYS_ASTHMA_TIME_TEXT, SCORE_ASTHMA_TIME_TEXT;
+    EditText DAYS_ASTHMA_TIME_TEXT, SCORE_ASTHMA_TIME_TEXT, DAYS_ASTHMA_BREATH_TEXT, SCORE_ASTHMA_BREATH_TEXT;
     Context ctx = this;
     Integer numberOfDays;
     Integer score;
@@ -19,12 +19,16 @@ public class ScoreActivity extends AppCompatActivity {
 
         DAYS_ASTHMA_TIME_TEXT = (EditText) findViewById(R.id.daysText1);
         SCORE_ASTHMA_TIME_TEXT = (EditText) findViewById(R.id.scoreText1);
+        DAYS_ASTHMA_BREATH_TEXT = (EditText) findViewById(R.id.daysText2);
+        SCORE_ASTHMA_BREATH_TEXT = (EditText) findViewById(R.id.scoreText2);
 
         numberOfDays = dop.getNumberOfDaysFromAsthmaTime(dop);
         DAYS_ASTHMA_TIME_TEXT.setText(numberOfDays.toString());
-
         score = getScoreFromAsthmaTime();
         SCORE_ASTHMA_TIME_TEXT.setText(score.toString());
+
+        numberOfDays = dop.getNumberOfDaysFromAsthmaBreath(dop);
+        DAYS_ASTHMA_BREATH_TEXT.setText(numberOfDays.toString());
 
     }
 
@@ -42,5 +46,7 @@ public class ScoreActivity extends AppCompatActivity {
 
        return score;
     }
+
+
 
 }
