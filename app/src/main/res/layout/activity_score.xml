@@ -296,7 +296,6 @@
         android:textSize="15dp"
         android:textColor="@android:color/white"
         android:layout_below="@+id/textView14"
-        android:layout_marginTop="5dp"
         android:layout_alignLeft="@+id/textView12"
         android:layout_alignStart="@+id/textView12" />
 
@@ -308,7 +307,6 @@
         android:text="5"
         android:gravity="center"
         android:layout_below="@+id/textView14"
-        android:layout_marginTop="5dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -318,10 +316,9 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Total Score:"
         android:id="@+id/textView16"
-        android:textSize="15dp"
+        android:textSize="16dp"
         android:textColor="@android:color/white"
-        android:layout_alignBottom="@+id/totalScoreText"
-        android:layout_marginBottom="3dp"
+        android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/textView12"/>
 
     <EditText
@@ -341,21 +338,11 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Your asthma is not under control"
         android:id="@+id/textView17"
-        android:textSize="15dp"
+        android:textSize="18dp"
         android:textColor="#ff17ff35"
-        android:layout_below="@+id/textView14"
+        android:layout_above="@+id/textView16"
+        android:layout_marginBottom="5dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Back"
-        android:id="@+id/backButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView17"
-        android:textSize="13dp"
-        android:layout_alignParentBottom="true" />
 
 </RelativeLayout>
