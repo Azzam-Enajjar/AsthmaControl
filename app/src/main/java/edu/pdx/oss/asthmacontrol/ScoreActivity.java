@@ -1,38 +1,26 @@
 package edu.pdx.oss.asthmacontrol;
 
-import android.support.v7.app.ActionBarActivity;
+import android.content.Context;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.app.AppCompatActivity;
+import android.widget.EditText;
 
-
-public class ScoreActivity extends ActionBarActivity {
+public class ScoreActivity extends AppCompatActivity {
+    EditText DAYS_ASTHMA_TIME_TEXT;
+    Context ctx = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score);
+        DatabaseOperations dop = new DatabaseOperations(ctx);
+
+        DAYS_ASTHMA_TIME_TEXT = (EditText) findViewById(R.id.daysText1);
+
+        DAYS_ASTHMA_TIME_TEXT.setText(dop.getNumberOfDaysFromAsthmaTime(dop).toString());
+
+
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_score, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }

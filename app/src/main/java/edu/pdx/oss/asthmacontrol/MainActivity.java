@@ -43,8 +43,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
         EXIT_BUTTON.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
