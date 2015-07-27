@@ -337,11 +337,24 @@
         android:text="Your asthma is not under control"
         android:id="@+id/textView17"
         android:textSize="18dp"
-        android:textColor="#ff17ff35"
-        android:layout_above="@+id/textView16"
+        android:textColor="#ffff2926"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_toRightOf="@+id/imageView6"
+        android:layout_toEndOf="@+id/imageView6"
+        android:layout_marginLeft="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Your asthma is under control"
+        android:id="@+id/textView18"
+        android:textSize="18dp"
+        android:textColor="#ff0bff2e"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/imageView6"
+        android:layout_toEndOf="@+id/imageView6"
+        android:layout_marginLeft="5dp"/>
 
     <ImageView
         android:layout_width="wrap_content"
@@ -387,5 +400,25 @@
         android:layout_below="@+id/scoreText5"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/imageView6"
+        android:background="@drawable/happyface"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/imageView7"
+        android:background="@drawable/sadface"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:visibility="invisible" />
 
 </RelativeLayout>
