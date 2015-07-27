@@ -36,6 +36,8 @@ public class ScoreActivity extends AppCompatActivity {
 
         numberOfDays = dop.getNumberOfDaysFromAsthmaSymptoms(dop);
         DAYS_ASTHMA_SYMPTOMS_TEXT.setText(numberOfDays.toString());
+        score = getScoreFromAsthmaSymptoms();
+        SCORE_ASTHMA_SYMPTOMS_TEXT.setText(score.toString());
 
 
     }
@@ -50,7 +52,7 @@ public class ScoreActivity extends AppCompatActivity {
        else if ((numberOfDays >=1) && (numberOfDays<=20))
            score = 4;
        else
-           score = 1;
+           score = 5;
 
        return score;
     }
@@ -67,6 +69,22 @@ public class ScoreActivity extends AppCompatActivity {
 
         return score;
     }
+
+    public Integer getScoreFromAsthmaSymptoms (){
+        if ((numberOfDays >=16) && (numberOfDays<=28))
+            score = 1;
+        else if ((numberOfDays >=7) && (numberOfDays<=15))
+            score = 2;
+        else if ((numberOfDays >=3) && (numberOfDays<=6))
+            score = 3;
+        else if ((numberOfDays >=1) && (numberOfDays<=2))
+            score = 4;
+        else
+            score = 5;
+
+        return score;
+    }
+
 
 
 }
