@@ -6,8 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
 
 public class ScoreActivity extends AppCompatActivity {
-    EditText DAYS_ASTHMA_TIME_TEXT;
+    EditText DAYS_ASTHMA_TIME_TEXT, SCORE_ASTHMA_TIME_TEXT;
     Context ctx = this;
+    Integer numberOfDays;
+    Integer score;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,11 +18,29 @@ public class ScoreActivity extends AppCompatActivity {
         DatabaseOperations dop = new DatabaseOperations(ctx);
 
         DAYS_ASTHMA_TIME_TEXT = (EditText) findViewById(R.id.daysText1);
+        SCORE_ASTHMA_TIME_TEXT = (EditText) findViewById(R.id.scoreText1);
 
-        DAYS_ASTHMA_TIME_TEXT.setText(dop.getNumberOfDaysFromAsthmaTime(dop).toString());
+        numberOfDays = dop.getNumberOfDaysFromAsthmaTime(dop);
+        DAYS_ASTHMA_TIME_TEXT.setText(numberOfDays.toString());
 
+        score = getScoreFromAsthmaTime();
+        SCORE_ASTHMA_TIME_TEXT.setText(score.toString());
 
     }
 
+    public Integer getScoreFromAsthmaTime(){
+       if (numberOfDays == 28)
+           score = 1;
+       else if ((numberOfDays >=22) && (numberOfDays<=27))
+           score = 2;
+       else if ((numberOfDays >=8) && (numberOfDays<=21))
+           score = 3;
+       else if ((numberOfDays >=1) && (numberOfDays<=20))
+           score = 4;
+       else
+           score = 1;
+
+       return score;
+    }
 
 }

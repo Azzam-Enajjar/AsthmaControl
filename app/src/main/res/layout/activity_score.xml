@@ -62,7 +62,6 @@
         android:layout_height="22dp"
         android:id="@+id/scoreText1"
         android:background="@android:color/white"
-        android:text="5"
         android:gravity="center"
         android:layout_alignTop="@+id/daysText1"
         android:layout_alignParentRight="true"
