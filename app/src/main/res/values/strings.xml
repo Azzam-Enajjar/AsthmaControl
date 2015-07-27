@@ -11,4 +11,5 @@
     <string name="title_activity_update_asthma_breath">updateAsthmaBreathActivity</string>
     <string name="title_activity_update_asthma_symptoms">UpdateAsthmaSymptomsActivity</string>
     <string name="title_activity_update_asthma_medication">UpdateAsthmaMedicationActivity</string>
+    <string name="title_activity_score">ScoreActivity</string>
 </resources>

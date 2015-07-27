@@ -40,6 +40,10 @@
             android:name=".UpdateAsthmaMedicationActivity"
             android:label="Show / Update date(s)" >
         </activity>
+        <activity
+            android:name=".ScoreActivity"
+            android:label="@string/title_activity_score" >
+        </activity>
     </application>
 
 </manifest>

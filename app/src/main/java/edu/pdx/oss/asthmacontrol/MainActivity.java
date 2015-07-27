@@ -15,8 +15,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         NEW_LOG_BUTTON = (Button) findViewById(R.id.newLogButton);
-        EXIT_BUTTON = (Button) findViewById(R.id.exitButton);
         UPDATE_LOG_BUTTON =(Button) findViewById(R.id.updateLogButton);
+        REPORT_SCORE_BUTTON = (Button) findViewById(R.id.reportScoreButton);
+        EXIT_BUTTON = (Button) findViewById(R.id.exitButton);
 
         NEW_LOG_BUTTON.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,6 +34,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        REPORT_SCORE_BUTTON.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ScoreActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
 
         EXIT_BUTTON.setOnClickListener(new View.OnClickListener() {
             @Override
