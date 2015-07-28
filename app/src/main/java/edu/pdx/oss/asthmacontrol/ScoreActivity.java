@@ -3,13 +3,20 @@ package edu.pdx.oss.asthmacontrol;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ScoreActivity extends AppCompatActivity {
     EditText DAYS_ASTHMA_TIME_TEXT, SCORE_ASTHMA_TIME_TEXT, DAYS_ASTHMA_BREATH_TEXT, SCORE_ASTHMA_BREATH_TEXT, DAYS_ASTHMA_SYMPTOMS_TEXT, SCORE_ASTHMA_SYMPTOMS_TEXT,  DAYS_ASTHMA_MEDICATION_TEXT, SCORE_ASTHMA_MEDICATION_TEXT, RATE_ASTHMA_TEXT, TOTAL_SCORE_TEXT;
+    TextView UNDER_CONTROL_TEXT, NOT_UNDER_CONTROL_TEXT;
+    ImageView HAPPY_IMAGEVIEW, SAD_IMAGEVIEW;
+    Button TOTAL_SCORE_BUTTON;
     Context ctx = this;
     Integer numberOfDays;
+    Integer score1, score2, score3, score4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,32 +34,49 @@ public class ScoreActivity extends AppCompatActivity {
         SCORE_ASTHMA_MEDICATION_TEXT = (EditText) findViewById(R.id.scoreText4);
         RATE_ASTHMA_TEXT = (EditText) findViewById(R.id.scoreText5);
         TOTAL_SCORE_TEXT = (EditText) findViewById(R.id.totalScoreText);
+        UNDER_CONTROL_TEXT = (TextView) findViewById(R.id.underControlText);
+        NOT_UNDER_CONTROL_TEXT = (TextView) findViewById(R.id.notUnderControlText);
+        HAPPY_IMAGEVIEW = (ImageView) findViewById(R.id.happyImageView);
+        SAD_IMAGEVIEW = (ImageView) findViewById(R.id.sadImageView);
+        TOTAL_SCORE_BUTTON = (Button) findViewById(R.id.totalScoreButton);
 
         numberOfDays = dop.getNumberOfDaysFromAsthmaTime(dop);
         DAYS_ASTHMA_TIME_TEXT.setText(numberOfDays.toString());
-        Integer score1 = getScoreFromAsthmaTime();
+        score1 = getScoreFromAsthmaTime();
         SCORE_ASTHMA_TIME_TEXT.setText(score1.toString());
 
         numberOfDays = dop.getNumberOfDaysFromAsthmaBreath(dop);
         DAYS_ASTHMA_BREATH_TEXT.setText(numberOfDays.toString());
-        Integer score2 = getScoreFromAsthmaBreath();
+        score2 = getScoreFromAsthmaBreath();
         SCORE_ASTHMA_BREATH_TEXT.setText(score2.toString());
 
         numberOfDays = dop.getNumberOfDaysFromAsthmaSymptoms(dop);
         DAYS_ASTHMA_SYMPTOMS_TEXT.setText(numberOfDays.toString());
-        Integer score3 = getScoreFromAsthmaSymptoms();
+        score3 = getScoreFromAsthmaSymptoms();
         SCORE_ASTHMA_SYMPTOMS_TEXT.setText(score3.toString());
 
         numberOfDays = dop.getNumberOfDaysFromAsthmaMedication(dop);
         DAYS_ASTHMA_MEDICATION_TEXT.setText(numberOfDays.toString());
-        Integer score4 = getScoreFromAsthmaMedication();
+        score4 = getScoreFromAsthmaMedication();
         SCORE_ASTHMA_MEDICATION_TEXT.setText(score4.toString());
 
-        Integer totalScore = score1 + score2 + score3 + score4;
-        TOTAL_SCORE_TEXT.setText(String.valueOf(totalScore));
+        TOTAL_SCORE_BUTTON.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Integer totalScore = score1 + score2 + score3 + score4 + Integer.parseInt(RATE_ASTHMA_TEXT.getText().toString());
+                TOTAL_SCORE_TEXT.setText(String.valueOf(totalScore));
 
+                TOTAL_SCORE_BUTTON.setVisibility(View.INVISIBLE);
 
-
+                if(totalScore>19){
+                    UNDER_CONTROL_TEXT.setVisibility(View.VISIBLE);
+                    HAPPY_IMAGEVIEW.setVisibility(View.VISIBLE);
+                }else {
+                    NOT_UNDER_CONTROL_TEXT.setVisibility(View.VISIBLE);
+                    SAD_IMAGEVIEW.setVisibility(View.VISIBLE);
+                }
+            }
+        });
     }
 
     public Integer getScoreFromAsthmaTime(){

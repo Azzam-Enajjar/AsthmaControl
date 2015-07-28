@@ -334,17 +334,17 @@
         android:layout_alignParentEnd="true"
         android:inputType="number" />
 
-        <TextView
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Your asthma is not under control"
-        android:id="@+id/textView17"
+        android:text="Your asthma is under control"
+        android:id="@+id/underControlText"
         android:textSize="18dp"
-        android:textColor="#ffff2926"
+        android:textColor="#ff0bff2e"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/imageView6"
-        android:layout_toEndOf="@+id/imageView6"
+        android:layout_toRightOf="@+id/happyImageView"
+        android:layout_toEndOf="@+id/happyImageView"
         android:layout_marginLeft="5dp"
         android:visibility="invisible" />
 
@@ -352,13 +352,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Your asthma is under control"
-        android:id="@+id/textView18"
+        android:text="Your asthma is not under control"
+        android:id="@+id/notUnderControlText"
         android:textSize="18dp"
-        android:textColor="#ff0bff2e"
+        android:textColor="#ffff2926"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/imageView6"
-        android:layout_toEndOf="@+id/imageView6"
+        android:layout_toRightOf="@+id/sadImageView"
+        android:layout_toEndOf="@+id/sadImageView"
         android:layout_marginLeft="5dp"
         android:visibility="invisible" />
 
@@ -410,7 +410,7 @@
     <ImageView
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:id="@+id/imageView6"
+        android:id="@+id/happyImageView"
         android:background="@drawable/happyface"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
@@ -420,11 +420,20 @@
     <ImageView
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:id="@+id/imageView7"
+        android:id="@+id/sadImageView"
         android:background="@drawable/sadface"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:visibility="invisible" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Score"
+        android:id="@+id/totalScoreButton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
