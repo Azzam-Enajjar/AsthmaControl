@@ -42,7 +42,7 @@
         </activity>
         <activity
             android:name=".ScoreActivity"
-            android:label="@string/title_activity_score" >
+            android:label="Asthma Score" >
         </activity>
     </application>
 
