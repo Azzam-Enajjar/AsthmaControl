@@ -1,6 +1,8 @@
 package edu.pdx.oss.asthmacontrol;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -8,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ScoreActivity extends AppCompatActivity {
     EditText DAYS_ASTHMA_TIME_TEXT, SCORE_ASTHMA_TIME_TEXT, DAYS_ASTHMA_BREATH_TEXT, SCORE_ASTHMA_BREATH_TEXT, DAYS_ASTHMA_SYMPTOMS_TEXT, SCORE_ASTHMA_SYMPTOMS_TEXT,  DAYS_ASTHMA_MEDICATION_TEXT, SCORE_ASTHMA_MEDICATION_TEXT, RATE_ASTHMA_TEXT, TOTAL_SCORE_TEXT;
@@ -63,6 +66,47 @@ public class ScoreActivity extends AppCompatActivity {
         TOTAL_SCORE_BUTTON.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (score2 == 4){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(ScoreActivity.this);
+
+                    builder.setTitle("Confirm");
+                    builder.setMessage("You had shortness of breath everyday.. Have you had shortness of breath more than once a day?");
+
+                    builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+
+                        public void onClick(DialogInterface dialog, int which) {
+                            score2 = 1;
+                            SCORE_ASTHMA_BREATH_TEXT.setText("1");
+                            Integer totalScore = score1 + score2 + score3 + score4 + Integer.parseInt(RATE_ASTHMA_TEXT.getText().toString());
+                            TOTAL_SCORE_TEXT.setText(String.valueOf(totalScore));
+
+                            if(totalScore>19){
+                                UNDER_CONTROL_TEXT.setVisibility(View.VISIBLE);
+                                HAPPY_IMAGEVIEW.setVisibility(View.VISIBLE);
+                                NOT_UNDER_CONTROL_TEXT.setVisibility(View.INVISIBLE);
+                                SAD_IMAGEVIEW.setVisibility(View.INVISIBLE);
+                            }else {
+                                NOT_UNDER_CONTROL_TEXT.setVisibility(View.VISIBLE);
+                                SAD_IMAGEVIEW.setVisibility(View.VISIBLE);
+                                UNDER_CONTROL_TEXT.setVisibility(View.INVISIBLE);
+                                HAPPY_IMAGEVIEW.setVisibility(View.INVISIBLE);
+                            }
+
+                            dialog.dismiss();
+                        }
+                    });
+
+                    builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+
+                    AlertDialog alert = builder.create();
+                    alert.show();
+                }
+
                 Integer totalScore = score1 + score2 + score3 + score4 + Integer.parseInt(RATE_ASTHMA_TEXT.getText().toString());
                 TOTAL_SCORE_TEXT.setText(String.valueOf(totalScore));
 
@@ -71,9 +115,13 @@ public class ScoreActivity extends AppCompatActivity {
                 if(totalScore>19){
                     UNDER_CONTROL_TEXT.setVisibility(View.VISIBLE);
                     HAPPY_IMAGEVIEW.setVisibility(View.VISIBLE);
+                    NOT_UNDER_CONTROL_TEXT.setVisibility(View.INVISIBLE);
+                    SAD_IMAGEVIEW.setVisibility(View.INVISIBLE);
                 }else {
                     NOT_UNDER_CONTROL_TEXT.setVisibility(View.VISIBLE);
                     SAD_IMAGEVIEW.setVisibility(View.VISIBLE);
+                    UNDER_CONTROL_TEXT.setVisibility(View.INVISIBLE);
+                    HAPPY_IMAGEVIEW.setVisibility(View.INVISIBLE);
                 }
             }
         });
@@ -87,7 +135,7 @@ public class ScoreActivity extends AppCompatActivity {
             score = 2;
         else if ((numberOfDays >=8) && (numberOfDays<=21))
             score = 3;
-        else if ((numberOfDays >=1) && (numberOfDays<=20))
+        else if ((numberOfDays >=1) && (numberOfDays<=7))
             score = 4;
         else
             score = 5;
@@ -99,7 +147,7 @@ public class ScoreActivity extends AppCompatActivity {
         Integer score;
 
         if (numberOfDays == 28)
-            score = 1;
+            score = 2;
         else if ((numberOfDays >=9) && (numberOfDays<=27))
             score = 3;
         else if ((numberOfDays >=1) && (numberOfDays<=8))
@@ -131,7 +179,7 @@ public class ScoreActivity extends AppCompatActivity {
         Integer score;
 
         if (numberOfDays == 28)
-            score = 1;
+            score = 2;
         else if ((numberOfDays >=7) && (numberOfDays<=14))
             score = 3;
         else if ((numberOfDays >=1) && (numberOfDays<=6))
