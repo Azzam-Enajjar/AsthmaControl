@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -66,13 +68,13 @@ public class ScoreActivity extends AppCompatActivity {
         TOTAL_SCORE_BUTTON.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (RATE_ASTHMA_TEXT.getText().toString().equals("")){
+                if (RATE_ASTHMA_TEXT.getText().toString().equals("")) {
                     Toast.makeText(getBaseContext(), "Error... Enter the rate score first", Toast.LENGTH_LONG).show();
                     RATE_ASTHMA_TEXT.requestFocus();
                     return;
                 }
 
-                if (score4 == 4){
+                if (score4 == 2) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(ScoreActivity.this);
 
                     builder.setTitle("Confirm");
@@ -86,12 +88,12 @@ public class ScoreActivity extends AppCompatActivity {
                             Integer totalScore = score1 + score2 + score3 + score4 + Integer.parseInt(RATE_ASTHMA_TEXT.getText().toString());
                             TOTAL_SCORE_TEXT.setText(String.valueOf(totalScore));
 
-                            if(totalScore>19){
+                            if (totalScore > 19) {
                                 UNDER_CONTROL_TEXT.setVisibility(View.VISIBLE);
                                 HAPPY_IMAGEVIEW.setVisibility(View.VISIBLE);
                                 NOT_UNDER_CONTROL_TEXT.setVisibility(View.INVISIBLE);
                                 SAD_IMAGEVIEW.setVisibility(View.INVISIBLE);
-                            }else {
+                            } else {
                                 NOT_UNDER_CONTROL_TEXT.setVisibility(View.VISIBLE);
                                 SAD_IMAGEVIEW.setVisibility(View.VISIBLE);
                                 UNDER_CONTROL_TEXT.setVisibility(View.INVISIBLE);
@@ -113,7 +115,7 @@ public class ScoreActivity extends AppCompatActivity {
                     alert.show();
                 }
 
-                if (score2 == 4){
+                if (score2 == 2) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(ScoreActivity.this);
 
                     builder.setTitle("Confirm");
@@ -127,12 +129,12 @@ public class ScoreActivity extends AppCompatActivity {
                             Integer totalScore = score1 + score2 + score3 + score4 + Integer.parseInt(RATE_ASTHMA_TEXT.getText().toString());
                             TOTAL_SCORE_TEXT.setText(String.valueOf(totalScore));
 
-                            if(totalScore>19){
+                            if (totalScore > 19) {
                                 UNDER_CONTROL_TEXT.setVisibility(View.VISIBLE);
                                 HAPPY_IMAGEVIEW.setVisibility(View.VISIBLE);
                                 NOT_UNDER_CONTROL_TEXT.setVisibility(View.INVISIBLE);
                                 SAD_IMAGEVIEW.setVisibility(View.INVISIBLE);
-                            }else {
+                            } else {
                                 NOT_UNDER_CONTROL_TEXT.setVisibility(View.VISIBLE);
                                 SAD_IMAGEVIEW.setVisibility(View.VISIBLE);
                                 UNDER_CONTROL_TEXT.setVisibility(View.INVISIBLE);
@@ -159,12 +161,12 @@ public class ScoreActivity extends AppCompatActivity {
 
                 TOTAL_SCORE_BUTTON.setVisibility(View.INVISIBLE);
 
-                if(totalScore>19){
+                if (totalScore > 19) {
                     UNDER_CONTROL_TEXT.setVisibility(View.VISIBLE);
                     HAPPY_IMAGEVIEW.setVisibility(View.VISIBLE);
                     NOT_UNDER_CONTROL_TEXT.setVisibility(View.INVISIBLE);
                     SAD_IMAGEVIEW.setVisibility(View.INVISIBLE);
-                }else {
+                } else {
                     NOT_UNDER_CONTROL_TEXT.setVisibility(View.VISIBLE);
                     SAD_IMAGEVIEW.setVisibility(View.VISIBLE);
                     UNDER_CONTROL_TEXT.setVisibility(View.INVISIBLE);
@@ -172,7 +174,103 @@ public class ScoreActivity extends AppCompatActivity {
                 }
             }
         });
-    }
+
+       SCORE_ASTHMA_TIME_TEXT.addTextChangedListener(new TextWatcher() {
+           @Override
+           public void afterTextChanged(Editable s) {
+               if ((s.toString().equals("1")) || (s.toString().equals("2")) || (s.toString().equals("3")) || (s.toString().equals("4")) || (s.toString().equals("5")) || (s.toString().equals("")))
+                   return;
+               else {
+                   Toast.makeText(getBaseContext(), "Error... Enter a valid score number between 1 and 5", Toast.LENGTH_SHORT).show();
+                   s.clear();
+                   SCORE_ASTHMA_TIME_TEXT.requestFocus();
+               }
+           }
+           @Override
+           public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+           }
+           @Override
+           public void onTextChanged(CharSequence s, int start, int before, int count) {
+           }
+       });
+
+        SCORE_ASTHMA_BREATH_TEXT.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void afterTextChanged(Editable s) {
+                if ((s.toString().equals("1")) || (s.toString().equals("2")) || (s.toString().equals("3")) || (s.toString().equals("4")) || (s.toString().equals("5")) || (s.toString().equals("")))
+                    return;
+                else{
+                    Toast.makeText(getBaseContext(), "Error... Enter a valid score number between 1 and 5", Toast.LENGTH_SHORT).show();
+                    s.clear();
+                    SCORE_ASTHMA_BREATH_TEXT.requestFocus();
+                }
+            }
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+        });
+
+        SCORE_ASTHMA_SYMPTOMS_TEXT.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void afterTextChanged(Editable s) {
+                if ((s.toString().equals("1")) || (s.toString().equals("2")) || (s.toString().equals("3")) || (s.toString().equals("4")) || (s.toString().equals("5")) || (s.toString().equals("")))
+                    return;
+                else{
+                    Toast.makeText(getBaseContext(), "Error... Enter a valid score number between 1 and 5", Toast.LENGTH_SHORT).show();
+                    s.clear();
+                    SCORE_ASTHMA_SYMPTOMS_TEXT.requestFocus();
+                }
+            }
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+        });
+
+        SCORE_ASTHMA_MEDICATION_TEXT.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void afterTextChanged(Editable s) {
+                if ((s.toString().equals("1")) || (s.toString().equals("2")) || (s.toString().equals("3")) || (s.toString().equals("4")) || (s.toString().equals("5")) || (s.toString().equals("")))
+                    return;
+                else {
+                    Toast.makeText(getBaseContext(), "Error... Enter a valid score number between 1 and 5", Toast.LENGTH_SHORT).show();
+                    s.clear();
+                    SCORE_ASTHMA_MEDICATION_TEXT.requestFocus();
+                }
+            }
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+        });
+
+        RATE_ASTHMA_TEXT.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void afterTextChanged(Editable s) {
+                if ((s.toString().equals("1")) || (s.toString().equals("2")) || (s.toString().equals("3")) || (s.toString().equals("4")) || (s.toString().equals("5")) || (s.toString().equals("")))
+                    return;
+                else{
+                    Toast.makeText(getBaseContext(), "Error... Enter a valid score number between 1 and 5", Toast.LENGTH_SHORT).show();
+                    s.clear();
+                    RATE_ASTHMA_TEXT.requestFocus();
+                }
+            }
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+        });
+    } // End of onCreate procedure
 
     public Integer getScoreFromAsthmaTime(){
         Integer score;
