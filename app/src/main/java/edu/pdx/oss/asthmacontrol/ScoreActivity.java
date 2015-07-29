@@ -72,6 +72,47 @@ public class ScoreActivity extends AppCompatActivity {
                     return;
                 }
 
+                if (score4 == 4){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(ScoreActivity.this);
+
+                    builder.setTitle("Confirm");
+                    builder.setMessage("You have used your medication everyday.. Have you used your rescue inhaler or nebulizer medication 3 or more times per day (such as albuterol)?");
+
+                    builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+
+                        public void onClick(DialogInterface dialog, int which) {
+                            score4 = 1;
+                            SCORE_ASTHMA_MEDICATION_TEXT.setText("1");
+                            Integer totalScore = score1 + score2 + score3 + score4 + Integer.parseInt(RATE_ASTHMA_TEXT.getText().toString());
+                            TOTAL_SCORE_TEXT.setText(String.valueOf(totalScore));
+
+                            if(totalScore>19){
+                                UNDER_CONTROL_TEXT.setVisibility(View.VISIBLE);
+                                HAPPY_IMAGEVIEW.setVisibility(View.VISIBLE);
+                                NOT_UNDER_CONTROL_TEXT.setVisibility(View.INVISIBLE);
+                                SAD_IMAGEVIEW.setVisibility(View.INVISIBLE);
+                            }else {
+                                NOT_UNDER_CONTROL_TEXT.setVisibility(View.VISIBLE);
+                                SAD_IMAGEVIEW.setVisibility(View.VISIBLE);
+                                UNDER_CONTROL_TEXT.setVisibility(View.INVISIBLE);
+                                HAPPY_IMAGEVIEW.setVisibility(View.INVISIBLE);
+                            }
+
+                            dialog.dismiss();
+                        }
+                    });
+
+                    builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+
+                    AlertDialog alert = builder.create();
+                    alert.show();
+                }
+
                 if (score2 == 4){
                     AlertDialog.Builder builder = new AlertDialog.Builder(ScoreActivity.this);
 
