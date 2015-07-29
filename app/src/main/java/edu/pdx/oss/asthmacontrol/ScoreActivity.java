@@ -66,6 +66,12 @@ public class ScoreActivity extends AppCompatActivity {
         TOTAL_SCORE_BUTTON.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (RATE_ASTHMA_TEXT.getText().toString().equals("")){
+                    Toast.makeText(getBaseContext(), "Error... Enter the rate score first", Toast.LENGTH_LONG).show();
+                    RATE_ASTHMA_TEXT.requestFocus();
+                    return;
+                }
+
                 if (score2 == 4){
                     AlertDialog.Builder builder = new AlertDialog.Builder(ScoreActivity.this);
 
