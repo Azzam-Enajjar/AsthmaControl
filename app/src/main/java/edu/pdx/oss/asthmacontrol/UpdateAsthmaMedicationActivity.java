@@ -160,6 +160,9 @@ public class UpdateAsthmaMedicationActivity extends AppCompatActivity {
                             Toast.makeText(getBaseContext(), "There is no data...", Toast.LENGTH_LONG).show();
                         }
                     }
+                    else{
+                        Toast.makeText(getBaseContext(), "There is no data...", Toast.LENGTH_LONG).show();
+                    }
                     CR.close();
                 }catch (Exception e){
                     Toast.makeText(getBaseContext(),"Error : " + e.getMessage(), Toast.LENGTH_LONG).show();

@@ -276,11 +276,11 @@ public class ScoreActivity extends AppCompatActivity {
         Integer score;
         if (numberOfDays == 28)
             score = 1;
-        else if ((numberOfDays >=22) && (numberOfDays<=27))
+        else if ((numberOfDays >=18) && (numberOfDays<=27))
             score = 2;
-        else if ((numberOfDays >=8) && (numberOfDays<=21))
+        else if ((numberOfDays >=7) && (numberOfDays<=17))
             score = 3;
-        else if ((numberOfDays >=1) && (numberOfDays<=7))
+        else if ((numberOfDays >=1) && (numberOfDays<=6))
             score = 4;
         else
             score = 5;
@@ -293,9 +293,9 @@ public class ScoreActivity extends AppCompatActivity {
 
         if (numberOfDays == 28)
             score = 2;
-        else if ((numberOfDays >=9) && (numberOfDays<=27))
+        else if ((numberOfDays >=11) && (numberOfDays<=27))
             score = 3;
-        else if ((numberOfDays >=1) && (numberOfDays<=8))
+        else if ((numberOfDays >=1) && (numberOfDays<=10))
             score = 4;
         else
             score = 5;
@@ -306,9 +306,9 @@ public class ScoreActivity extends AppCompatActivity {
     public Integer getScoreFromAsthmaSymptoms (){
         Integer score;
 
-        if ((numberOfDays >=16) && (numberOfDays<=28))
+        if ((numberOfDays >=15) && (numberOfDays<=28))
             score = 1;
-        else if ((numberOfDays >=7) && (numberOfDays<=15))
+        else if ((numberOfDays >=7) && (numberOfDays<=14))
             score = 2;
         else if ((numberOfDays >=3) && (numberOfDays<=6))
             score = 3;
@@ -323,11 +323,11 @@ public class ScoreActivity extends AppCompatActivity {
     public Integer getScoreFromAsthmaMedication (){
         Integer score;
 
-        if (numberOfDays == 28)
+        if ((numberOfDays >=21) && (numberOfDays<=28))
             score = 2;
-        else if ((numberOfDays >=7) && (numberOfDays<=14))
+        else if ((numberOfDays >=8) && (numberOfDays<=20))
             score = 3;
-        else if ((numberOfDays >=1) && (numberOfDays<=6))
+        else if ((numberOfDays >=1) && (numberOfDays<=7))
             score = 4;
         else
             score = 5;
