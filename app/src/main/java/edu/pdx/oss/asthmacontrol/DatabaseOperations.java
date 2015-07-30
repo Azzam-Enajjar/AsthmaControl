@@ -165,7 +165,7 @@ public class DatabaseOperations extends SQLiteOpenHelper {
 
     public Cursor getPastFourWeeksFromAsthmaTime(DatabaseOperations dop){
         Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.DATE, -28);
+        cal.add(Calendar.DATE, -27);
         SimpleDateFormat sdf = new SimpleDateFormat( "yyyy-MM-dd" );
         String startDate = sdf.format(cal.getTime());
         String endDate = sdf.format(new Date());
@@ -180,7 +180,7 @@ public class DatabaseOperations extends SQLiteOpenHelper {
 
     public Cursor getPastFourWeeksFromAsthmaBreath(DatabaseOperations dop){
         Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.DATE, -28);
+        cal.add(Calendar.DATE, -27);
         SimpleDateFormat sdf = new SimpleDateFormat( "yyyy-MM-dd" );
         String startDate = sdf.format(cal.getTime());
         String endDate = sdf.format(new Date());
@@ -195,7 +195,7 @@ public class DatabaseOperations extends SQLiteOpenHelper {
 
     public Cursor getPastFourWeeksFromAsthmaSymptoms(DatabaseOperations dop){
         Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.DATE, -28);
+        cal.add(Calendar.DATE, -27);
         SimpleDateFormat sdf = new SimpleDateFormat( "yyyy-MM-dd" );
         String startDate = sdf.format(cal.getTime());
         String endDate = sdf.format(new Date());
@@ -210,7 +210,7 @@ public class DatabaseOperations extends SQLiteOpenHelper {
 
     public Cursor getPastFourWeeksFromAsthmaMedication(DatabaseOperations dop){
         Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.DATE, -28);
+        cal.add(Calendar.DATE, -27);
         SimpleDateFormat sdf = new SimpleDateFormat( "yyyy-MM-dd" );
         String startDate = sdf.format(cal.getTime());
         String endDate = sdf.format(new Date());
@@ -225,7 +225,7 @@ public class DatabaseOperations extends SQLiteOpenHelper {
 
     public Integer getNumberOfDaysFromAsthmaTime(DatabaseOperations dop){
         Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.DATE, -28);
+        cal.add(Calendar.DATE, -27);
         SimpleDateFormat sdf = new SimpleDateFormat( "yyyy-MM-dd" );
         String startDate = sdf.format(cal.getTime());
         String endDate = sdf.format(new Date());
@@ -240,7 +240,7 @@ public class DatabaseOperations extends SQLiteOpenHelper {
 
     public Integer getNumberOfDaysFromAsthmaBreath(DatabaseOperations dop){
         Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.DATE, -28);
+        cal.add(Calendar.DATE, -27);
         SimpleDateFormat sdf = new SimpleDateFormat( "yyyy-MM-dd" );
         String startDate = sdf.format(cal.getTime());
         String endDate = sdf.format(new Date());
@@ -255,7 +255,7 @@ public class DatabaseOperations extends SQLiteOpenHelper {
 
     public Integer getNumberOfDaysFromAsthmaSymptoms(DatabaseOperations dop){
         Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.DATE, -28);
+        cal.add(Calendar.DATE, -27);
         SimpleDateFormat sdf = new SimpleDateFormat( "yyyy-MM-dd" );
         String startDate = sdf.format(cal.getTime());
         String endDate = sdf.format(new Date());
@@ -270,7 +270,7 @@ public class DatabaseOperations extends SQLiteOpenHelper {
 
     public Integer getNumberOfDaysFromAsthmaMedication(DatabaseOperations dop){
         Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.DATE, -28);
+        cal.add(Calendar.DATE, -27);
         SimpleDateFormat sdf = new SimpleDateFormat( "yyyy-MM-dd" );
         String startDate = sdf.format(cal.getTime());
         String endDate = sdf.format(new Date());
