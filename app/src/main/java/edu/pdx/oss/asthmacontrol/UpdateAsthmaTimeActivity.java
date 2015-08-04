@@ -84,7 +84,7 @@ public class UpdateAsthmaTimeActivity extends AppCompatActivity {
                     logDate = new SimpleDateFormat("yyyy-MM-dd").format(dateObject);
                 } catch (java.text.ParseException e) {
                     e.printStackTrace();
-                    Toast.makeText(getBaseContext(), "Error... Please enter a valid date", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(), "Error... Please enter a valid date", Toast.LENGTH_SHORT).show();
                 }
 
                 DatabaseOperations dop1 = new DatabaseOperations(ctx);
@@ -98,7 +98,7 @@ public class UpdateAsthmaTimeActivity extends AppCompatActivity {
                         }
                     }while(CR.moveToNext());
                     if (dateFound) {
-                        Toast.makeText(getBaseContext(), "Error... The date already exists", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getBaseContext(), "Error... The date already exists", Toast.LENGTH_SHORT).show();
                         DATE_TEXT.requestFocus();
                         return;
                     }
@@ -107,7 +107,7 @@ public class UpdateAsthmaTimeActivity extends AppCompatActivity {
                 dop2.insertDateForAsthmaTime(dop2, logDate);
                 li.add(logDate);
                 GRIDVIEW.setAdapter(dataAdapter);
-                Toast.makeText(getBaseContext(), "The date added successfully", Toast.LENGTH_LONG).show();
+                Toast.makeText(getBaseContext(), "The date added successfully", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -121,16 +121,16 @@ public class UpdateAsthmaTimeActivity extends AppCompatActivity {
         DELETE_BUTTON.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (pos != null) {
+                if ((pos != null) && (pos >=0)) {
                     DatabaseOperations dop = new DatabaseOperations(ctx);
                     String logDate = li.get(pos);
                     dop.deleteDateFromAsthmaTime(dop, logDate);
                     li.remove(pos);
                     displayDataOnGridView();
-                    Toast.makeText(getBaseContext(), "Selected date has been removed successfully..", Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(getBaseContext(), "Error... Select a date first", Toast.LENGTH_LONG).show();
-                }
+                    pos = pos - 1;
+                    Toast.makeText(getBaseContext(), "Selected date has been removed successfully..", Toast.LENGTH_SHORT).show();
+                } else
+                    Toast.makeText(getBaseContext(), "Error... Select a date first", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -147,8 +147,8 @@ public class UpdateAsthmaTimeActivity extends AppCompatActivity {
                 DatabaseOperations dop = new DatabaseOperations(ctx);
                 try {
                     Cursor CR = dop.getPastFourWeeksFromAsthmaTime(dop);
+                    li.clear();
                     if(CR.getCount()>0){
-                        li.clear();
                         if (CR.moveToFirst()){
                             do {
                                 String logDate = CR.getString(CR.getColumnIndex(TableData.TableInfo.ASTHMA_TIME_DATE));
@@ -157,15 +157,15 @@ public class UpdateAsthmaTimeActivity extends AppCompatActivity {
                             } while(CR.moveToNext());
                         }
                         else{
-                            Toast.makeText(getBaseContext(), "There is no data...", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getBaseContext(), "There is no data...", Toast.LENGTH_SHORT).show();
                         }
                     }
                     else{
-                        Toast.makeText(getBaseContext(), "There is no data...", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getBaseContext(), "There is no data...", Toast.LENGTH_SHORT).show();
                     }
                     CR.close();
                 }catch (Exception e){
-                    Toast.makeText(getBaseContext(),"Error : " + e.getMessage(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(),"Error : " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -196,9 +196,9 @@ public class UpdateAsthmaTimeActivity extends AppCompatActivity {
     public void displayDataOnGridView(){
         try {
             SQLiteDatabase SQ = openOrCreateDatabase(TableData.TableInfo.DATABASE_NAME, Context.MODE_PRIVATE, null);
-            Cursor CR = SQ.rawQuery("SELECT * FROM " + TableData.TableInfo.ASTHMA_TIME_TABLE, null);
+            Cursor CR = SQ.rawQuery("SELECT * FROM " + TableData.TableInfo.ASTHMA_TIME_TABLE + " ORDER BY " + TableData.TableInfo.ASTHMA_TIME_DATE, null);
+            li.clear();
             if(CR.getCount()>0){
-                li.clear();
                 if (CR.moveToFirst()){
                     do {
                         String logDate = CR.getString(CR.getColumnIndex(TableData.TableInfo.ASTHMA_TIME_DATE));
@@ -207,13 +207,13 @@ public class UpdateAsthmaTimeActivity extends AppCompatActivity {
                     } while(CR.moveToNext());
                 }
                 else{
-                    Toast.makeText(getBaseContext(), "There is no data...", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(), "There is no data...", Toast.LENGTH_SHORT).show();
                 }
             }
             CR.close();
             SQ.close();
         }catch (Exception e){
-            Toast.makeText(getBaseContext(),"Error : " + e.getMessage(), Toast.LENGTH_LONG).show();
+            Toast.makeText(getBaseContext(),"Error : " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 

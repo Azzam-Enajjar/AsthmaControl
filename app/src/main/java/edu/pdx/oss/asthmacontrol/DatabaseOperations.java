@@ -174,7 +174,7 @@ public class DatabaseOperations extends SQLiteOpenHelper {
         String columns[] = {TableData.TableInfo.ASTHMA_TIME_DATE};
         String selection = TableData.TableInfo.ASTHMA_TIME_DATE + " BETWEEN ? AND ?";
         String args[] = {startDate, endDate};
-        Cursor CR = SQ.query(TableData.TableInfo.ASTHMA_TIME_TABLE, columns, selection, args, null, null, null);
+        Cursor CR = SQ.query(TableData.TableInfo.ASTHMA_TIME_TABLE, columns, selection, args, TableData.TableInfo.ASTHMA_TIME_DATE, null, null);
         return CR;
     }
 
@@ -189,7 +189,7 @@ public class DatabaseOperations extends SQLiteOpenHelper {
         String columns[] = {TableData.TableInfo.ASTHMA_BREATH_DATE};
         String selection = TableData.TableInfo.ASTHMA_BREATH_DATE + " BETWEEN ? AND ?";
         String args[] = {startDate, endDate};
-        Cursor CR = SQ.query(TableData.TableInfo.ASTHMA_BREATH_TABLE, columns, selection, args, null, null, null);
+        Cursor CR = SQ.query(TableData.TableInfo.ASTHMA_BREATH_TABLE, columns, selection, args, TableData.TableInfo.ASTHMA_BREATH_DATE, null, null);
         return CR;
     }
 
@@ -204,7 +204,7 @@ public class DatabaseOperations extends SQLiteOpenHelper {
         String columns[] = {TableData.TableInfo.ASTHMA_SYMPTOMS_DATE};
         String selection = TableData.TableInfo.ASTHMA_SYMPTOMS_DATE + " BETWEEN ? AND ?";
         String args[] = {startDate, endDate};
-        Cursor CR = SQ.query(TableData.TableInfo.ASTHMA_SYMPTOMS_TABLE, columns, selection, args, null, null, null);
+        Cursor CR = SQ.query(TableData.TableInfo.ASTHMA_SYMPTOMS_TABLE, columns, selection, args, TableData.TableInfo.ASTHMA_SYMPTOMS_DATE, null, null);
         return CR;
     }
 
@@ -219,7 +219,7 @@ public class DatabaseOperations extends SQLiteOpenHelper {
         String columns[] = {TableData.TableInfo.ASTHMA_MEDICATION_DATE};
         String selection = TableData.TableInfo.ASTHMA_MEDICATION_DATE + " BETWEEN ? AND ?";
         String args[] = {startDate, endDate};
-        Cursor CR = SQ.query(TableData.TableInfo.ASTHMA_MEDICATION_TABLE, columns, selection, args, null, null, null);
+        Cursor CR = SQ.query(TableData.TableInfo.ASTHMA_MEDICATION_TABLE, columns, selection, args, TableData.TableInfo.ASTHMA_MEDICATION_DATE, null, null);
         return CR;
     }
 
