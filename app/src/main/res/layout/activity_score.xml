@@ -321,6 +321,7 @@
         android:textSize="16dp"
         android:textColor="@android:color/white"
         android:layout_below="@+id/imageView5"
+        android:layout_marginTop="5dp"
         android:layout_alignRight="@+id/textView12"/>
 
     <EditText
@@ -330,6 +331,7 @@
         android:background="@android:color/white"
         android:gravity="center"
         android:layout_below="@+id/imageView5"
+        android:layout_marginTop="5dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:inputType="number" />
