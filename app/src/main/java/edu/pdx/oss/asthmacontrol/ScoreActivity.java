@@ -1,3 +1,8 @@
+/*
+Copyright (c) 2015 Azzam Enajjar
+This project is licensed under the terms of the MIT license. Please see LICENSE.md for full license terms.
+*/
+
 package edu.pdx.oss.asthmacontrol;
 
 import android.app.AlertDialog;

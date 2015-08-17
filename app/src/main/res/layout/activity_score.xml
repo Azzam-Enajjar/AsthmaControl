@@ -1,3 +1,9 @@
+<!--
+<Copyright (c) 2015 Azzam Enajjar
+
+This project is licensed under the terms of the MIT license. Please see LICENSE.md for full license terms.
+-->
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
